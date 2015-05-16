@@ -21,9 +21,9 @@ app.set('port', port);
 
 var server = http.createServer(app);
 // Sync ORM models
-models.sequelize.sync().then(function () {
+models.sequelize.sync({force: true }).then(function () {
 
-
+  var user = models.User.create({ username: "admin", password: "admin" });
 
 /**
  * Listen on provided port, on all network interfaces.
