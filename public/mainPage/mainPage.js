@@ -1,15 +1,15 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute'])
+angular.module('myApp.mainPage', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/view1', {
-    templateUrl: 'view1/view1.html',
-    controller: 'View1Ctrl'
+  $routeProvider.when('/mainPage', {
+    templateUrl: 'mainPage/mainPage.html',
+    controller: 'MainPageCtrl'
   });
 }])
 
-.controller('View1Ctrl', ['$scope', function($scope) {
+.controller('MainPageCtrl', ['$scope', function($scope) {
 	$scope.welcomeText = "Bine ai venit $utilizator !";
 
 	$scope.books = [
