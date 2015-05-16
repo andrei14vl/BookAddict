@@ -22,18 +22,22 @@ router.get('/user/:id', function(req, res, next){
 module.exports = router;
 
 
-// /** Add a new */
-// router.post('/', function(req, res, next){
-// 	console.log(req.body);
+/* Route for adding a book to readBooks */
+router.post('/', function(req, res, next){
 
-// 	var currentUser = request.user;
-// 	var booksRead = currentUser.addRead(req.body)
-// 	var book = models.Book.findAll({
-// 		where{
-// 			id: req.body.bookId
-// 		}
-// 	}).
-// });
+	var currentUser = request.user;
+	var book = models.Book.findAll({
+		where: {
+			id: req.body.bookId
+		}
+	}).then(function(book){
+		currentUser.addRead(book[0]).then(function(bookRead){
+			res.send(bookRead);
+		}).catch(function(err){
+			res.send(404);
+		})
+	})
+});
 
 
 module.exports = router;
