@@ -30,4 +30,16 @@ angular.module('myApp.bookDetails', ['ngRoute'])
                 console.log('Error: ' + data);
         });
     }
+
+    $scope.addToWishList = function(){
+        $http.post('/wishlist/', {
+            bookId : $routeParams.id
+        })
+            .success(function(data) {
+                $scope.book = data;
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+        });
+    }
 }]);

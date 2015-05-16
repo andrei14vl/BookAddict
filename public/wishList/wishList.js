@@ -9,9 +9,9 @@ angular.module('myApp.wishList', ['ngRoute'])
   });
 }])
 
-.controller('WishListCtrl', ['$scope','$http', function($scope, $http) {
+.controller('WishListCtrl', ['$scope','$http', '$rootScope', function($scope, $http, $rootScope) {
 
-    $http.get('/books')
+    $http.get('/wishlist/' + $rootScope.currentUser.id)
         .success(function(data) {
             $scope.books = data;
         })
