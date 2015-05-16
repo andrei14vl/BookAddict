@@ -1,15 +1,23 @@
 "use strict";
 
 module.exports = function(sequelize, DataTypes) {
-  var User = sequelize.define("User", {
-    username: DataTypes.STRING
-  }, {
-    classMethods: {
-      associate: function(models) {
-        User.hasMany(models.Task)
+  var User = sequelize.define(
+    "User", 
+    {
+      username: DataTypes.STRING,
+      email: DataTypes.STRING,
+    }, 
+    {
+      classMethods: {
+        associate: function(models) {
+          User.belongsToMany(models.Book, {as: 'BookReviews', through: models.Review});
+          User.belongsToMany(models.Book, {as: 'Read', through: models.BooksRead});
+          User.belongsToMany(models.Book, {as: 'BookdWishes', through: models.Wishlist});
+          User.belongsToMany(models.Book, {as: 'RecomendedBooks', through: models.Recomendation});
+        }
       }
-    }
-  });
+   }
+  );
 
   return User;
 };
