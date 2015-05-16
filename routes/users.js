@@ -11,13 +11,13 @@ router.get('/', function(req, res, next){
 	});
 });
 
-router.get('/user/:id', function(req, res, next) {
+router.get('/:id', function(req, res, next) {
   	var users = models.User.findAll({
 		where:{
 			id: req.params.id
 		}
 	}).then(function(myUser){
-			res.send(myUser);
+			res.send(myUser[0]);
 
 	});
 });

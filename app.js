@@ -96,7 +96,7 @@ app.post('/logout', function(req, res) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/books', books);
-app.use('/recomandation', books);
+app.use('/recomandation', recomandation);
 app.use('/readBooks', readBooks);
 
 // catch 404 and forward to error handler
