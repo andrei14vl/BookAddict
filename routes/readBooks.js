@@ -11,7 +11,7 @@ router.get('/user/:id', function(req, res, next){
 			id: req.params.id
 		}
 	}).then(function(user){
-		var result = user.Read;
+		var result = user.Read
 		if(typeof result === "undefined")
 			res.send(0);
 	}).catch(function(err){
@@ -20,13 +20,13 @@ router.get('/user/:id', function(req, res, next){
 	});
 });
 
-module.exports = router;
-
 
 /* Route for adding a book to readBooks */
 router.post('/', function(req, res, next){
 
-	var currentUser = request.user;
+	var currentUser = req.user;
+
+	console.log(req.body);
 	var book = models.Book.findAll({
 		where: {
 			id: req.body.bookId

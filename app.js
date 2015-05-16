@@ -14,7 +14,7 @@ var users = require('./routes/users');
 var auth = require('./auth/auth');
 var books = require('./routes/books');
 var recomandation = require('./routes/recomandation');
-var readBooks = require('./routes/readBooks.js');
+var readBooks = require('./routes/readBooks');
 
 var app = express();
 
