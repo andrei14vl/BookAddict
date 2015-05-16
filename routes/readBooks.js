@@ -12,7 +12,8 @@ router.get('/user/:id', function(req, res, next){
 		}
 	}).then(function(user){
 		var result = user.Read;
-		res.send(result);
+		if(typeof result === "undefined")
+			res.send(0);
 	}).catch(function(err){
 		res.send(404);
 	});
