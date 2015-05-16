@@ -7,25 +7,31 @@ Prioritizarea a fost facuta in functie de analiza Pareto:
   - [ ] nume utilizator
   - [ ] buton pentru vizualizare profil
   - [ ] bara de navigare
+
 ##fereastra login
   - [ ] layout
   - [ ] backend - creare tabela User
   - [ ] backend - creare modul de autentificare
   - [ ] backend - routing si API pentru login
+
 ##fereastra inregistrare
   - [ ] layout
   - [ ] backend - routing si API pentru inregistrare
+
 ##adaugare functionalitate pentru “Cumpara carte”
   - [ ] layout
   - [ ] popularea tabelei ce contine informatii despre carti
   - [ ] backend - generare link catre site extern
   - [ ] fereastra ce contine descrierea cartii si informatii despre ea
+
 ##adaugarea listei de carti citite in pagina principala
   - [ ] layout
   - [ ] backend - implementare API pentru tabela Carti
+
 ##posibilitatea de a da rating unei carti
   - [ ] layout
   - [ ] backend - implementare API pentru tabela de Review doar pentru rating
+
 ##adaugare wishlist in pagina principala
   - [ ] layout
   - [ ] backend - implementare API pentru tabela Wishlist
