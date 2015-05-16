@@ -22,7 +22,7 @@ router.get("/book/:id", function(req, res, next){
 			id: req.params.id
 		}
 	}).then(function(book){
-		res.send(book);
+		res.send(book[0]);
 	}).catch(function(err){
 		res.send("Book not found");
 	});

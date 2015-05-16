@@ -14,8 +14,8 @@ module.exports = function(sequelize, DataTypes) {
         associate: function(models) {
           Book.hasMany(models.ShopLink);
           Book.belongsToMany(models.Genre, {through: 'BookGenre'});
-          Book.belongsToMany(models.User, {as: 'Reviewers', through: models.Review});
-          Book.belongsToMany(models.User, {as: 'Readers', through: models.BookRead});
+          Book.belongsToMany(models.User, {as: 'Reviewer', through: models.Review});
+          Book.belongsToMany(models.User, {as: 'Reader', through: models.BookRead});
           Book.belongsToMany(models.User, {as: 'Buyer', through: models.Wishlist});
           Book.belongsToMany(models.User, {as: 'RecomendedFor', through: models.Recomendation});
         }
