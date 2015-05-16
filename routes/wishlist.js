@@ -3,19 +3,19 @@ var models  = require('../models');
 var router=express.Router();
 
 
-/* Get books read by an user */
+/* Whishlist */
 
 router.get('/user/:id', function(req, res, next){
-	var readBooks=models.User.findAll({
+	models.User.findAll({
 		where:{
 			id: req.params.id
 		}
 	}).then(function(user){
-		var result = user[0].getRead().then(function(booksRead){
-			if(typeof result === "undefined")
+		var result = user[0].getBookWish().then(function(wishlist){
+			if(typeof wishlist === "undefined")
 				res.send(0);
 			else
-				res.send(booksRead);
+				res.send(wishlist);
 		}).catch(function(err){
 			res.send(err.Message);
 		});
@@ -25,19 +25,21 @@ router.get('/user/:id', function(req, res, next){
 });
 
 
-/* Route for adding a book to readBooks */
+/* Route for adding a book to wishlist */
 router.post('/', function(req, res, next){
 
 	var currentUser = req.user;
 
-	console.log(req.body);
 	var book = models.Book.findAll({
 		where: {
 			id: req.body.bookId
 		}
 	}).then(function(book){
-		currentUser.addRead(book[0]).then(function(bookRead){
-			res.send(bookRead);
+		currentUser.addBookWish(book[0]).then(function(whishlist){
+			if(typeof whishlist === "undefined")
+				res.send(0);
+			else
+				res.send(whishlist);
 		}).catch(function(err){
 			res.send(err.Message);
 		})
