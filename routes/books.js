@@ -4,9 +4,9 @@ var router=express.Router();
 
 /* GET books listing */
 router.get('/', function(req, res, next){
-	var books = models.Book.findAll()
-		.then(function(mxResult){
-			res.send(mxResult);
+	models.Book.findAll()
+		.then(function(books){
+			res.send(books);
 	}).catch(function(err){
 		res.send(404);
 	});
@@ -18,8 +18,10 @@ router.get("/book/:id", function(req, res, next){
 		where:{
 			id: req.params.id
 		}
-	}).then(function(myUser){
-			res.send(myUser);
+	}).then(function(book){
+		res.send(book);
+	}).catch(function(err){
+		res.send("Book not found");
 	});
 });
 
