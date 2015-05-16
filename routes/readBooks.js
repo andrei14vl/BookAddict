@@ -16,7 +16,7 @@ router.get('/user/:id', function(req, res, next){
 			res.send(0);
 	}).catch(function(err){
 
-		res.send('afajsdflkaj');
+		res.send(err.Message);
 	});
 });
 
@@ -35,7 +35,7 @@ router.post('/', function(req, res, next){
 		currentUser.addRead(book[0]).then(function(bookRead){
 			res.send(bookRead);
 		}).catch(function(err){
-			res.send(404);
+			res.send(err.Message);
 		})
 	})
 });
