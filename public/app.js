@@ -14,7 +14,7 @@ config(['$routeProvider', function($routeProvider) {
 }])
  .run(function($rootScope, $http){
     $rootScope.message = '';
-
+    
     // Logout function is available in any pages
     $rootScope.logout = function(){
       $rootScope.message = 'Logged out.';
