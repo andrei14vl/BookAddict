@@ -12,9 +12,9 @@ angular.module('myApp.search', ['ngRoute'])
 .controller('searchCtrl', ['$scope', '$rootScope', '$http', '$location', '$routeParams',
         function($scope, $rootScope, $http, $location, $routeParams) {
   // This object will be filled by the form
-  $http.get('/books')
+  $http.get('/search/' + $routeParams.id)
     .success( function(data) {
-
+      $scope.books = data;
     })
     .error(function(){
       $rootScope.message = 'An error has occurred. Please try again!';
