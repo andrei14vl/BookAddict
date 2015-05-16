@@ -14,7 +14,6 @@ angular.module('myApp.mainPage', ['ngRoute'])
     $http.get('/books')
         .success(function(data) {
             $scope.books = data;
-            console.log(data);
         })
         .error(function(data) {
             console.log('Error: ' + data);
