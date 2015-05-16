@@ -6,6 +6,8 @@ module.exports = function(sequelize, DataTypes) {
     {
       title: DataTypes.STRING,
       author: DataTypes.STRING,
+      description: DataTypes.STRING,
+      image: DataTypes.STRING
     }, 
     {
       classMethods: {
