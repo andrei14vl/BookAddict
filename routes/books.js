@@ -27,14 +27,4 @@ router.get("/book/:id", function(req, res, next){
 	res.json(book);
 });
 
-router.post("/book", function(req, res){
-	if(!req.body.hasOwnProperty('title'))
-	{
-		res.statusCode=500;
-		return res.send("Error. Title is missing");
-	}
-});
-
-
-
 module.exports = router;
