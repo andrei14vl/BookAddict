@@ -16,15 +16,11 @@ router.get('/', function(req, res, next){
 router.get("/book/:id", function(req, res, next){
 	var book = models.Book.findAll({
 		where:{
-			bookId: req.params.id
+			id: req.params.id
 		}
+	}).then(function(myUser){
+			res.send(myUser);
 	});
-	if(!book)
-	{
-		res.statusCode=404;
-		return res.send("Error 404: Book with ID "+req.params.id+" not found.");
-	}
-	res.json(book);
 });
 
 module.exports = router;
