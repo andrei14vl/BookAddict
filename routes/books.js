@@ -2,9 +2,6 @@ var express = require('express');
 var models  = require('../models');
 var router=express.Router();
 
-//router.use(express.bodyParser());
-
-
 /* GET books listing */
 router.get('/', function(req, res, next){
 	var books = models.Book.findAll()
