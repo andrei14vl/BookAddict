@@ -20,7 +20,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         });
 
     $scope.readBook = function(){
-        $http.get('/readBooks/'+$routeParams.id)
+        $http.post('/readBooks/'+$routeParams.id)
             .success(function(data) {
                 $scope.book = data;
             })
