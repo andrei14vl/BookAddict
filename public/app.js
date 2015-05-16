@@ -6,6 +6,7 @@ angular.module('myApp', [
   'myApp.mainPage',
   'myApp.view2',
   'myApp.bookDetails',
+  'myApp.wishList',
   'myApp.version',
   'myApp.login',
   'myApp.register'
