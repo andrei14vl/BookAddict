@@ -93,12 +93,8 @@ app.post('/logout', function(req, res) {
 // Routes 
 
 app.use('/', routes);
-<<<<<<< HEAD
-app.use('/users', auth, users);
-=======
 app.use('/users', users);
 app.use('/books', books);
->>>>>>> 189fa569ddd21c10c618c5ec75ff1456799d912d
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
