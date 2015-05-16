@@ -74,52 +74,52 @@ var books = models.Book.bulkCreate([{
     title: "Sage",
     author: "John Rose",
     description: "Nullam varius. Nulla facilisi. Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque. Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis.",
-    image: "https://reverbnation.com/elementum/eu/interdum.js?ut=phasellus&tellus=sit&nulla=amet&ut=erat&erat=nulla&id=tempus&mauris=vivamus&vulputate=in&elementum=felis&nullam=eu&varius=sapien&nulla=cursus&facilisi=vestibulum&cras=proin&non=eu&velit=mi&nec=nulla&nisi=ac&vulputate=enim&nonummy=in&maecenas=tempor&tincidunt=turpis&lacus=nec&at=euismod&velit=scelerisque&vivamus=quam&vel=turpis"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/3/5/35faeedd761cf28ebfc52801997ad1ac.jpg"
   }, {
     title: "Hollow Ridge",
     author: "Shawn Boyd",
     description: "Donec odio justo, sollicitudin ut, suscipit a, feugiat et, eros. Vestibulum ac est lacinia nisi venenatis tristique. Fusce congue, diam id ornare imperdiet, sapien urna pretium nisl, ut volutpat sapien arcu sed augue. Aliquam erat volutpat. In congue. Etiam justo. Etiam pretium iaculis justo. In hac habitasse platea dictumst.",
-    image: "http://google.ru/turpis/nec/euismod/scelerisque/quam/turpis/adipiscing.json?posuere=mattis&cubilia=egestas&curae=metus&donec=aenean&pharetra=fermentum&magna=donec&vestibulum=ut&aliquet=mauris&ultrices=eget&erat=massa&tortor=tempor&sollicitudin=convallis&mi=nulla&sit=neque&amet=libero&lobortis=convallis&sapien=eget&sapien=eleifend&non=luctus&mi=ultricies&integer=eu&ac=nibh&neque=quisque&duis=id&bibendum=justo&morbi=sit&non=amet&quam=sapien&nec=dignissim&dui=vestibulum&luctus=vestibulum&rutrum=ante&nulla=ipsum&tellus=primis&in=in&sagittis=faucibus&dui=orci&vel=luctus&nisl=et&duis=ultrices&ac=posuere&nibh=cubilia&fusce=curae&lacus=nulla&purus=dapibus&aliquet=dolor&at=vel&feugiat=est&non=donec&pretium=odio&quis=justo&lectus=sollicitudin&suspendisse=ut&potenti=suscipit&in=a&eleifend=feugiat&quam=et&a=eros&odio=vestibulum&in=ac&hac=est&habitasse=lacinia&platea=nisi&dictumst=venenatis&maecenas=tristique"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/7/3/733f3bed8653fd75be468ec44af9faa6.jpg"
   }, {
     title: "Hanson",
     author: "Albert Cox",
     description: "Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede. Morbi porttitor lorem id ligula. Suspendisse ornare consequat lectus. In est risus, auctor sed, tristique in, tempus sit amet, sem. Fusce consequat. Nulla nisl. Nunc nisl. Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus.",
-    image: "http://intel.com/potenti.png?volutpat=et&quam=commodo&pede=vulputate&lobortis=justo&ligula=in&sit=blandit&amet=ultrices&eleifend=enim&pede=lorem&libero=ipsum&quis=dolor&orci=sit&nullam=amet&molestie=consectetuer&nibh=adipiscing&in=elit&lectus=proin&pellentesque=interdum&at=mauris&nulla=non&suspendisse=ligula&potenti=pellentesque&cras=ultrices&in=phasellus&purus=id&eu=sapien&magna=in&vulputate=sapien&luctus=iaculis&cum=congue&sociis=vivamus&natoque=metus&penatibus=arcu&et=adipiscing&magnis=molestie&dis=hendrerit&parturient=at&montes=vulputate&nascetur=vitae&ridiculus=nisl&mus=aenean&vivamus=lectus&vestibulum=pellentesque&sagittis=eget&sapien=nunc&cum=donec&sociis=quis&natoque=orci&penatibus=eget&et=orci&magnis=vehicula&dis=condimentum&parturient=curabitur&montes=in&nascetur=libero&ridiculus=ut&mus=massa&etiam=volutpat&vel=convallis&augue=morbi&vestibulum=odio&rutrum=odio&rutrum=elementum&neque=eu"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/1/e/1ed66630a70fa7ae47c98b11fd112741.jpg"
   }, {
     title: "Hintze",
     author: "Paul Black",
     description: "Morbi vel lectus in quam fringilla rhoncus. Mauris enim leo, rhoncus sed, vestibulum sit amet, cursus id, turpis. Integer aliquet, massa id lobortis convallis, tortor risus dapibus augue, vel accumsan tellus nisi eu orci. Mauris lacinia sapien quis libero. Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh. In quis justo.",
-    image: "http://hc360.com/sapien/varius/ut.aspx?ac=tempus&neque=sit&duis=amet&bibendum=sem&morbi=fusce&non=consequat&quam=nulla&nec=nisl&dui=nunc&luctus=nisl&rutrum=duis&nulla=bibendum&tellus=felis&in=sed&sagittis=interdum&dui=venenatis&vel=turpis&nisl=enim&duis=blandit&ac=mi&nibh=in&fusce=porttitor&lacus=pede&purus=justo&aliquet=eu&at=massa&feugiat=donec&non=dapibus&pretium=duis&quis=at&lectus=velit&suspendisse=eu&potenti=est&in=congue&eleifend=elementum&quam=in&a=hac&odio=habitasse&in=platea&hac=dictumst&habitasse=morbi&platea=vestibulum&dictumst=velit&maecenas=id&ut=pretium&massa=iaculis&quis=diam&augue=erat&luctus=fermentum&tincidunt=justo&nulla=nec"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/b/1/b1073033d76033220b52669c775b0327.jpg"
   }, {
     title: "Clyde Gallagher",
     author: "Anne Perkins",
     description: "Quisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus. Phasellus in felis. Donec semper sapien a libero. Nam dui. Proin leo odio, porttitor id, consequat in, consequat ut, nulla. Sed accumsan felis. Ut at dolor quis odio consequat varius.",
-    image: "https://sitemeter.com/hac/habitasse/platea/dictumst.html?in=natoque"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/3/6/361cc78146ef84c280f63115eb80602f.jpg"
   }, {
     title: "Stang",
     author: "Keith Mills",
     description: "Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet. Maecenas leo odio, condimentum id, luctus nec, molestie sed, justo. Pellentesque viverra pede ac diam. Cras pellentesque volutpat dui. Maecenas tristique, est et tempus semper, est quam pharetra magna, ac consequat metus sapien ut nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Mauris viverra diam vitae quam. Suspendisse potenti.",
-    image: "http://imageshack.us/lectus.xml?ipsum=congue&praesent=etiam&blandit=justo&lacinia=etiam&erat=pretium&vestibulum=iaculis&sed=justo&magna=in&at=hac&nunc=habitasse&commodo=platea&placerat=dictumst&praesent=etiam&blandit=faucibus&nam=cursus&nulla=urna&integer=ut&pede=tellus&justo=nulla&lacinia=ut"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/2/e/2e860444037211c871c9d295fe17aaa5.jpg"
   }, {
     title: "Homewood",
     author: "Joyce Thompson",
     description: "Proin eu mi. Nulla ac enim. In tempor, turpis nec euismod scelerisque, quam turpis adipiscing lorem, vitae mattis nibh ligula nec sem. Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit. Donec diam neque, vestibulum eget, vulputate ut, ultrices vel, augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec pharetra, magna vestibulum aliquet ultrices, erat tortor sollicitudin mi, sit amet lobortis sapien sapien non mi. Integer ac neque. Duis bibendum.",
-    image: "http://sfgate.com/massa/donec.js?non=volutpat&mi=in&integer=congue&ac=etiam&neque=justo&duis=etiam&bibendum=pretium&morbi=iaculis&non=justo&quam=in&nec=hac&dui=habitasse&luctus=platea&rutrum=dictumst&nulla=etiam&tellus=faucibus&in=cursus&sagittis=urna&dui=ut&vel=tellus&nisl=nulla&duis=ut&ac=erat&nibh=id&fusce=mauris&lacus=vulputate&purus=elementum&aliquet=nullam&at=varius&feugiat=nulla&non=facilisi&pretium=cras&quis=non&lectus=velit&suspendisse=nec&potenti=nisi&in=vulputate&eleifend=nonummy&quam=maecenas&a=tincidunt&odio=lacus&in=at&hac=velit&habitasse=vivamus&platea=vel&dictumst=nulla&maecenas=eget&ut=eros&massa=elementum&quis=pellentesque&augue=quisque&luctus=porta&tincidunt=volutpat&nulla=erat&mollis=quisque&molestie=erat&lorem=eros&quisque=viverra&ut=eget&erat=congue&curabitur=eget"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/e/d/ed47a5fa125df97ccc4b6718cd5ebf66.jpg"
   }, {
     title: "1st",
     author: "Cynthia Castillo",
     description: "Suspendisse accumsan tortor quis turpis.",
-    image: "https://com.com/ridiculus/mus/etiam/vel/augue/vestibulum.jsp?accumsan=urna&felis=pretium&ut=nisl&at=ut&dolor=volutpat&quis=sapien&odio=arcu&consequat=sed&varius=augue&integer=aliquam&ac=erat&leo=volutpat&pellentesque=in&ultrices=congue&mattis=etiam&odio=justo&donec=etiam&vitae=pretium&nisi=iaculis&nam=justo&ultrices=in&libero=hac&non=habitasse&mattis=platea&pulvinar=dictumst&nulla=etiam&pede=faucibus&ullamcorper=cursus&augue=urna&a=ut&suscipit=tellus&nulla=nulla&elit=ut&ac=erat&nulla=id&sed=mauris&vel=vulputate&enim=elementum&sit=nullam&amet=varius&nunc=nulla&viverra=facilisi&dapibus=cras&nulla=non&suscipit=velit&ligula=nec&in=nisi&lacus=vulputate&curabitur=nonummy&at=maecenas&ipsum=tincidunt&ac=lacus&tellus=at&semper=velit&interdum=vivamus&mauris=vel&ullamcorper=nulla"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/69/63/c250e365c5caa22223a350156c69219a.jpg"
   }, {
     title: "Melby",
     author: "Dorothy Rose",
     description: "Aliquam sit amet diam in magna bibendum imperdiet. Nullam orci pede, venenatis non, sodales sed, tincidunt eu, felis. Fusce posuere felis sed lacus. Morbi sem mauris, laoreet ut, rhoncus aliquet, pulvinar sed, nisl. Nunc rhoncus dui vel sem.",
-    image: "https://narod.ru/congue/risus/semper/porta.png?luctus=at&rutrum=nulla&nulla=suspendisse&tellus=potenti&in=cras&sagittis=in&dui=purus&vel=eu&nisl=magna&duis=vulputate&ac=luctus&nibh=cum&fusce=sociis&lacus=natoque&purus=penatibus&aliquet=et&at=magnis&feugiat=dis&non=parturient&pretium=montes&quis=nascetur&lectus=ridiculus&suspendisse=mus&potenti=vivamus&in=vestibulum&eleifend=sagittis&quam=sapien&a=cum&odio=sociis&in=natoque&hac=penatibus&habitasse=et&platea=magnis&dictumst=dis&maecenas=parturient&ut=montes&massa=nascetur&quis=ridiculus&augue=mus&luctus=etiam&tincidunt=vel&nulla=augue&mollis=vestibulum&molestie=rutrum&lorem=rutrum&quisque=neque&ut=aenean&erat=auctor&curabitur=gravida&gravida=sem"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/91/54/ad4d42e55b9ac1b5273125591ff234b3.jpg"
   }, {
     title: "Harbort",
     author: "Shirley Wood",
     description: "Donec ut dolor.",
-    image: "https://businessinsider.com/lacus.aspx?diam=pede&in=ac&magna=diam&bibendum=cras&imperdiet=pellentesque"
+    image: "http://booklikes.com/photo/max/125/0/upload/books/d/a/azure_da0c6fbf12097a317743c5c890042747.jpg"
   }
 ], { validate: true }).catch(function(errors) { });
 
