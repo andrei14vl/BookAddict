@@ -42,9 +42,9 @@ passport.serializeUser(function(user, done) {
 });
 
 passport.deserializeUser(function(id, done) {
-  models.User.find({where: {id: id}}).success(function(user){
+  models.User.find({where: {id: id}}).then(function(user){
     done(null, user);
-  }).error(function(err){
+  }).catch(function(err){
     done(err, null);
   });
 });

@@ -10,7 +10,6 @@ angular.module('myApp.mainPage', ['ngRoute'])
 }])
 
 .controller('MainPageCtrl', ['$scope', function($scope) {
-	$scope.welcomeText = "Bine ai venit $utilizator !";
 
 	$scope.books = [
 	{'name': 'Vrajitorul din Oz',
