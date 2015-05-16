@@ -7,9 +7,12 @@ var router=express.Router();
 
 /* GET books listing */
 router.get('/', function(req, res, next){
-	var books = models.Book.findAll();
-	console.log("BOOKS: "+JSON.stringify(books, null, 4));
-	res.json(books);
+	var books = models.Book.findAll()
+		.then(function(mxResult){
+			res.send(mxResult);
+	}).catch(function(err){
+		res.send(404);
+	});
 });
 
 
@@ -26,15 +29,5 @@ router.get("/book/:id", function(req, res, next){
 	}
 	res.json(book);
 });
-
-router.post("/book", function(req, res){
-	if(!req.body.hasOwnProperty('title'))
-	{
-		res.statusCode=500;
-		return res.send("Error. Title is missing");
-	}
-});
-
-
 
 module.exports = router;

@@ -20,8 +20,20 @@ router.get('/user/:id', function(req, res, next) {
 			res.send(myUser);
 
 	});
-
-
 });
+
+router.post('/', function(req, res, next) {
+	console.log(req.body);
+	var users = models.User.create({
+		username: req.body.username, 
+		email: req.body.email, 
+		password: req.body.password 
+	}).then(function( user) {
+		res.send(user);
+	}).catch(function(err){
+		res.send(404);
+	});
+});
+
 
 module.exports = router;
