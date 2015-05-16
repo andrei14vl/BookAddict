@@ -5,11 +5,49 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+
+var session = require('express-session');
 var routes = require('./routes/index');
 var users = require('./routes/users');
+var auth = require('./auth/auth');
 var books = require('./routes/books');
 
 var app = express();
+
+var models = require('./models');
+
+
+
+// Use local strategy to create user account
+passport.use(new LocalStrategy(
+  function(username, password, done) {
+    models.User.find({ where: { username: username }}).then(function(user) {
+      if (!user) {
+        done(null, false, { message: 'Unknown user' });
+      } else if (password != user.password) {
+        done(null, false, { message: 'Invalid password'});
+      } else {
+        done(null, user);
+      }
+    }).catch(function(err){
+      done(err);
+    });
+  }
+));
+
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  models.User.find({where: {id: id}}).success(function(user){
+    done(null, user);
+  }).error(function(err){
+    done(err, null);
+  });
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -22,7 +60,37 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(session({ secret: 'verysecret' }));
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
+
+
+// Auth
+
+
+
+// Serialize sessions
+
+
+//test login
+app.get('/loggedin', function(req, res){
+  res.send(req.isAuthenticated() ? res.user : '0');
+});
+
+// route to log in
+app.post('/login', passport.authenticate('local'), function(req, res){
+  res.send(req.user);
+});
+
+// route to log out
+app.post('/logout', function(req, res) {
+  req.logOut();
+  res.send(200);
+})
+
+
+// Routes 
 
 app.use('/', routes);
 app.use('/users', users);
