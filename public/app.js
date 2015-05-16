@@ -5,6 +5,7 @@ angular.module('myApp', [
   'ngRoute',
   'myApp.mainPage',
   'myApp.view2',
+  'myApp.bookDetails',
   'myApp.version',
   'myApp.login',
   'myApp.register'
