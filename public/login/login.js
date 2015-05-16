@@ -23,7 +23,7 @@ angular.module('myApp.login', ['ngRoute'])
     .success(function(user){
       // No error: authentication OK
       $rootScope.message = 'Authentication successful!';
-      $rootScope.currentUser = { name : user.username };
+      $rootScope.currentUser = user
       $location.url('/');
     })
     .error(function(){
