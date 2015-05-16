@@ -9,7 +9,9 @@ router.get('/:id', function(req, res, next) {
 			id: req.params.id
 		}
 	}).then(function(myUser){
-			res.send(myUser.id);
+
+			var result = myUser[0].getRead();
+			res.send(result);
 
 	});
 });
