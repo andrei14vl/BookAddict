@@ -11,11 +11,15 @@ router.get('/user/:id', function(req, res, next){
 			id: req.params.id
 		}
 	}).then(function(user){
-		var result = user.Read
-		if(typeof result === "undefined")
-			res.send(0);
+		var result = user[0].getRead().then(function(booksRead){
+			if(typeof result === "undefined")
+				res.send(0);
+			else
+				res.send(booksRead);
+		}).catch(function(err){
+			res.send(err.Message);
+		});
 	}).catch(function(err){
-
 		res.send(err.Message);
 	});
 });
