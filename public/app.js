@@ -6,8 +6,18 @@ angular.module('myApp', [
   'myApp.view1',
   'myApp.view2',
   'myApp.version',
-  'myApp.login'
+  'myApp.login',
+  'myApp.register'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
-}]);
+}])
+ .run(function($rootScope, $http){
+    $rootScope.message = '';
+
+    // Logout function is available in any pages
+    $rootScope.logout = function(){
+      $rootScope.message = 'Logged out.';
+      $http.post('/logout');
+    };
+ });
