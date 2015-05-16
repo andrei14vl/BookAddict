@@ -15,7 +15,8 @@ router.get('/user/:id', function(req, res, next){
 		if(typeof result === "undefined")
 			res.send(0);
 	}).catch(function(err){
-		res.send(404);
+
+		res.send('afajsdflkaj');
 	});
 });
 

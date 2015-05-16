@@ -123,6 +123,13 @@ var books = models.Book.bulkCreate([{
   }
 ], { validate: true }).catch(function(errors) { });
 
+console.log("user length:" + users.length)
+for (var i = users.length - 1; i >= 0; i--) {
+  for (var j = books.length - 1; j >= 0; j--) {
+      books[j].addReader(users[i]);
+      users[i].addRead(books[j]);
+  }
+};
 /**
  * Listen on provided port, on all network interfaces.
  */
