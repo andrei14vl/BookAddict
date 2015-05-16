@@ -23,13 +23,13 @@ angular.module('myApp.register', ['ngRoute'])
     })
     .success(function(user){
       // No error: authentication OK
-      $rootScope.message = 'Authentication successful!';
-      $location.url('/');
+      $rootScope.message = 'Register successful! Please log in.';
+      $location.url('/login');
     })
     .error(function(){
       // Error: authentication failed
-      $rootScope.message = 'Authentication failed.';
-      $location.url('/login');
+      $rootScope.message = 'Register failed. Please try again.';
+      $location.url('/register');
     });
   };
 }]);
