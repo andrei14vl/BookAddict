@@ -21,9 +21,49 @@ app.set('port', port);
 
 var server = http.createServer(app);
 // Sync ORM models
-models.sequelize.sync().then(function () {
+models.sequelize.sync({force: true }).then(function () {
 
-
+var users = models.User.create({
+  username: "gcooper0",
+  email: "pday0@utexas.edu",
+  password: "NkBqip8A"
+}, {
+  username: "jhamilton1",
+  email: "lmurphy1@ovh.net",
+  password: "fvbg6slGRZX"
+}, {
+  username: "ameyer2",
+  email: "jedwards2@taobao.com",
+  password: "MYbUmgsDUz"
+}, {
+  username: "hmontgomery3",
+  email: "gbell3@spiegel.de",
+  password: "d6H01FvYpBqJ"
+}, {
+  username: "gmitchell4",
+  email: "lking4@livejournal.com",
+  password: "Cdmwkj2Ve"
+}, {
+  username: "ncruz5",
+  email: "sgomez5@1688.com",
+  password: "TS8WcgDU91J7"
+}, {
+  username: "rpierce6",
+  email: "aray6@de.vu",
+  password: "QyPvtUf2h2n"
+}, {
+  username: "jdiaz7",
+  email: "bperez7@de.vu",
+  password: "v2NAZ9ZUaN"
+}, {
+  username: "malvarez8",
+  email: "sperkins8@canalblog.com",
+  password: "cqnkYJLS"
+}, {
+  username: "kgreene9",
+  email: "jcunningham9@gizmodo.com",
+  password: "SCtmerhkI"
+});
 
 /**
  * Listen on provided port, on all network interfaces.
