@@ -20,11 +20,9 @@ angular.module('myApp.wishList', ['ngRoute'])
         });
 
     $scope.remove = function($bookId){
-        $http.post('/wishlist/remove', {
-            bookId : $bookId
-        })
+        $http.delete('/wishlist/'+$bookId)
             .success(function(data) {
-                
+                location.reload();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
