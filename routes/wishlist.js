@@ -25,7 +25,7 @@ router.get('/user/:id', function(req, res, next){
 });
 
 /* Deletes a book from the wishlist of the current user logged in*/
-router.delete('/book/:id', function(req, res, next){
+router.delete('/remove/:id', function(req, res, next){
 	var currentUser = req.user;
 
 	var book = models.Whishlist.find({
@@ -36,8 +36,14 @@ router.delete('/book/:id', function(req, res, next){
 			}, ]
 		}
 	}).then(function(book){
-		book.destroy().then(function())
-	})
+		book.destroy().then(function(book){
+			res.send("Book deleted from wishlist.");
+		}).catch(function(err){
+			res.send(err.Message);
+		})
+	}).catch(function(err){
+		res.send(err.Message);
+	});
 });
 
 
