@@ -18,4 +18,16 @@ angular.module('myApp.wishList', ['ngRoute'])
         .error(function(data) {
             console.log('Error: ' + data);
         });
+
+    $scope.remove = function($bookId){
+        $http.post('/wishlist/remove', {
+            bookId : $bookId
+        })
+            .success(function(data) {
+                
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+        });
+    }
 }]);
