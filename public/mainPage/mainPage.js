@@ -11,7 +11,7 @@ angular.module('myApp.mainPage', ['ngRoute'])
 
 .controller('MainPageCtrl', ['$scope','$http', function($scope, $http) {
 
-    $http.get('/books')
+    $http.get('/recommandation')
         .success(function(data) {
             $scope.books = data;
         })

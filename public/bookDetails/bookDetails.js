@@ -42,4 +42,18 @@ angular.module('myApp.bookDetails', ['ngRoute'])
                 console.log('Error: ' + data);
         });
     }
+
+    $scope.addReview = function(){
+        $http.post('/reviews/', {
+            bookId : $routeParams.id,
+            rating: $scope.rating,
+            text: $scope.comment:
+        })
+            .success(function(data) {
+                $scope.book = data;
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+        });
+    }
 }]);
