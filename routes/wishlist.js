@@ -33,14 +33,14 @@ router.delete('/:id', function(req, res, next){
 		res.send("Only authenticated users can remove books from wishlist.");
 	}
 
-	var book = models.Wishlist.destroy({
+	models.Wishlist.destroy({
 		where:{
 			$and: [{
 				userId: req.user.id,
 				bookId: req.params.id
 			}, ]
 		}
-	}).then(function(book){
+	}).then(function(mxResponse){
 		res.send("Book deleted from wishlist");
 	}).catch(function(err){
 		res.send(err.Message);

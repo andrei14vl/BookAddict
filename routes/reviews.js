@@ -49,4 +49,27 @@ router.post('/', function(req, res, next){
 });
 
 
+router.delete('/:id', function(req, res, next){
+
+	if(typeof req.user==="undefined")
+	{
+		res.send("Only authenticated users can remove their reviews.");
+	}
+
+	models.Review.destroy({
+		where: {
+			$and: [{
+				userId: req.user.id,
+				reviewId: req.params.id
+			}]
+		}
+	}).then(function(mxResponse){
+		res.send("Review deleted.");
+	}).catch(function(err){
+		res.send(err.Message);
+	})
+
+});
+
+
 module.exports = router;
