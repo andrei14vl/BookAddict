@@ -150,17 +150,21 @@ var genres = models.Genre.bulkCreate([{
   }, {
     name: "Thriller"
   }
-], { validate: true }).catch(function(errors) { });
+], { validate: true }).then(function(genres){   
+    console.log("/n/n/n/n/n/n/n/n/user length:" + genres.length)
+// for (var i = genres.length - 1; i >= 0; i--) {
+//       books[j].addReader(users[i]);
+//       users[i].addRead(books[j]);
+//};
+
+
+} ).catch(function(errors) { });
 
 
 
-console.log("user length:" + users.length)
-for (var i = users.length - 1; i >= 0; i--) {
-  for (var j = books.length - 1; j >= 0; j--) {
-      books[j].addReader(users[i]);
-      users[i].addRead(books[j]);
-  }
-};
+
+
+
 /**
  * Listen on provided port, on all network interfaces.
  */
