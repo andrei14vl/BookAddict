@@ -15,7 +15,7 @@ router.get('/', function(req, res, next){
 });
 
 /* Genres liked by an user */
-router.get('user/', function(req, res, next){
+router.get('/user', function(req, res, next){
 	models.User.find({
 		where:{
 			id: req.user.id
