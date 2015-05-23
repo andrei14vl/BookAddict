@@ -6,12 +6,12 @@ var router=express.Router();
 /* Get books read by an user */
 
 router.get('/user/:id', function(req, res, next){
-	var readBooks=models.User.findAll({
+	var readBooks=models.User.find({
 		where:{
 			id: req.params.id
 		}
 	}).then(function(user){
-		var result = user[0].getRead().then(function(booksRead){
+		var result = user.getRead().then(function(booksRead){
 			if(typeof result === "undefined")
 				res.send(0);
 			else
@@ -33,13 +33,13 @@ router.post('/', function(req, res, next){
 	{
 		res.send("Only authenticated users can mark a book as read.");
 	}
-	console.log(req.body);
-	var book = models.Book.findAll({
+
+	var book = models.Book.find({
 		where: {
 			id: req.body.bookId
 		}
 	}).then(function(book){
-		currentUser.addRead(book[0]).then(function(bookRead){
+		currentUser.addRead(book).then(function(bookRead){
 			res.send(bookRead);
 		}).catch(function(err){
 			res.send(err.Message);

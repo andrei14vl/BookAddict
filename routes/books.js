@@ -14,12 +14,12 @@ router.get('/', function(req, res, next){
 
 
 router.get("/book/:id", function(req, res, next){
-	var book = models.Book.findAll({
+	var book = models.Book.find({
 		where:{
 			id: req.params.id
 		}
 	}).then(function(book){
-		res.send(book[0]);
+		res.send(book);
 	}).catch(function(err){
 		res.send("Book not found");
 	});
