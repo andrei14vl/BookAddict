@@ -4,7 +4,7 @@ var models  = require('../models');
 
 
 
-router.get('/:id', function(req, res, next){
+router.get('/', function(req, res, next){
 	models.Book.findAll()
 		.then(function(books){
 			res.send(books);
