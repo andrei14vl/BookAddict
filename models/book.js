@@ -17,7 +17,7 @@ module.exports = function(sequelize, DataTypes) {
           Book.belongsToMany(models.User, {as: 'Reviewer', through: models.Review});
           Book.belongsToMany(models.User, {as: 'Reader', through: models.BookRead});
           Book.belongsToMany(models.User, {as: 'Buyer', through: models.Wishlist});
-          Book.belongsToMany(models.User, {as: 'RecomendedFor', through: models.Recomendation});
+          Book.belongsToMany(models.User, {as: 'RecomendedFor', through: models.Recommendation});
         }
       }
     }
