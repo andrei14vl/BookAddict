@@ -6,12 +6,12 @@ var router=express.Router();
 /* Whishlist */
 
 router.get('/user/:id', function(req, res, next){
-	models.User.findAll({
+	models.User.find({
 		where:{
 			id: req.params.id
 		}
 	}).then(function(user){
-		var result = user[0].getBookWish().then(function(wishlist){
+		var result = user.getBookWish().then(function(wishlist){
 			if(typeof wishlist === "undefined")
 				res.send(0);
 			else
@@ -59,12 +59,12 @@ router.post('/', function(req, res, next){
 		res.send("Only authenticated users can add books to wishlist.");
 	}
 
-	var book = models.Book.findAll({
+	var book = models.Book.find({
 		where: {
 			id: req.body.bookId
 		}
 	}).then(function(book){
-		currentUser.addBookWish(book[0]).then(function(whishlist){
+		currentUser.addBookWish(book).then(function(whishlist){
 			if(typeof whishlist === "undefined")
 				res.send(0);
 			else

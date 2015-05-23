@@ -12,12 +12,12 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/:id', function(req, res, next) {
-  	var users = models.User.findAll({
+  	var users = models.User.find({
 		where:{
 			id: req.params.id
 		}
 	}).then(function(myUser){
-			res.send(myUser[0]);
+			res.send(myUser);
 
 	});
 });
@@ -31,7 +31,7 @@ router.post('/', function(req, res, next) {
 	}).then(function( user) {
 		res.send(user);
 	}).catch(function(err){
-		res.send(404);
+		res.send(err.Message);
 	});
 });
 
