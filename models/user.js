@@ -11,10 +11,11 @@ module.exports = function(sequelize, DataTypes) {
     {
       classMethods: {
         associate: function(models) {
+          User.hasMany(models.Genre);
           User.belongsToMany(models.Book, {as: 'BookReview', through: models.Review});
           User.belongsToMany(models.Book, {as: 'Read', through: models.BookRead});
           User.belongsToMany(models.Book, {as: 'BookWish', through: models.Wishlist});
-          User.belongsToMany(models.Book, {as: 'RecomendedBook', through: models.Recomendation});
+          User.belongsToMany(models.Book, {as: 'RecomendedBook', through: models.Recommendation});
         }
       }
    }

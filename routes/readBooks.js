@@ -29,7 +29,10 @@ router.get('/user/:id', function(req, res, next){
 router.post('/', function(req, res, next){
 
 	var currentUser = req.user;
-
+	if(typeof currentUser==="undefined")
+	{
+		res.send("Only authenticated users can mark a book as read.");
+	}
 	console.log(req.body);
 	var book = models.Book.findAll({
 		where: {

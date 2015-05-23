@@ -27,6 +27,12 @@ router.get('/user/:id', function(req, res, next){
 /* Deletes a book from the wishlist of the current user logged in*/
 router.delete('/:id', function(req, res, next){
 	var currentUser = req.user;
+
+	if(typeof currentUser==="undefined")
+	{
+		res.send("Only authenticated users can remove books from wishlist.");
+	}
+
 	var book = models.Wishlist.destroy({
 		where:{
 			$and: [{
@@ -48,6 +54,11 @@ router.delete('/:id', function(req, res, next){
 router.post('/', function(req, res, next){
 
 	var currentUser = req.user;
+	if(typeof currentUser==="undefined")
+	{
+		res.send("Only authenticated users can add books to wishlist.");
+	}
+
 	var book = models.Book.findAll({
 		where: {
 			id: req.body.bookId

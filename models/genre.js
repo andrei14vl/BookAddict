@@ -10,6 +10,8 @@ module.exports = function(sequelize, DataTypes) {
         classMethods: {
           associate: function(models) {
             Genre.belongsToMany(models.Book, {through: 'BookGenre'});
+            Genre.belongsToMany(models.User);
+
           }
         }
       }
