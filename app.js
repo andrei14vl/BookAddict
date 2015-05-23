@@ -17,6 +17,7 @@ var recomandation = require('./routes/recomandation');
 var readBooks = require('./routes/readBooks');
 var wishlist = require('./routes/wishlist');
 var search = require('./routes/search');
+var reviews = require('./routes/reviews');
 var app = express();
 
 var models = require('./models');
@@ -101,6 +102,7 @@ app.use('/recomandation', recomandation);
 app.use('/readBooks', readBooks);
 app.use('/wishlist', wishlist);
 app.use('/search', search);
+app.use('/reviews', reviews)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
