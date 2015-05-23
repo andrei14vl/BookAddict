@@ -9,7 +9,8 @@ angular.module('myApp', [
   'myApp.wishList',
   'myApp.version',
   'myApp.login',
-  'myApp.register'
+  'myApp.register',
+  'myApp.search'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
@@ -52,6 +53,9 @@ config(['$routeProvider', function($routeProvider) {
     $rootScope.logout = function(){
       $rootScope.message = 'Logged out.';
       $http.post('/logout').then($rootScope.checkLoggedIn);
-
     };
+
+    $rootScope.runSearch = function(){
+    	$location.url('/search/' + $rootScope.searchText);
+    }
  });

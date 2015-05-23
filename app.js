@@ -15,7 +15,8 @@ var auth = require('./auth/auth');
 var books = require('./routes/books');
 var recomandation = require('./routes/recomandation');
 var readBooks = require('./routes/readBooks');
-
+var wishlist = require('./routes/wishlist');
+var search = require('./routes/search');
 var app = express();
 
 var models = require('./models');
@@ -98,6 +99,8 @@ app.use('/users', users);
 app.use('/books', books);
 app.use('/recomandation', recomandation);
 app.use('/readBooks', readBooks);
+app.use('/wishlist', wishlist);
+app.use('/search', search);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

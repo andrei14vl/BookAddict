@@ -9,13 +9,23 @@ angular.module('myApp.wishList', ['ngRoute'])
   });
 }])
 
-.controller('WishListCtrl', ['$scope','$http', function($scope, $http) {
+.controller('WishListCtrl', ['$scope','$http', '$rootScope', function($scope, $http, $rootScope) {
 
-    $http.get('/books')
+    $http.get('/wishlist/user/' + $rootScope.currentUser.id)
         .success(function(data) {
             $scope.books = data;
         })
         .error(function(data) {
             console.log('Error: ' + data);
         });
+
+    $scope.remove = function($bookId){
+        $http.delete('/wishlist/'+$bookId)
+            .success(function(data) {
+                location.reload();
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+        });
+    }
 }]);
