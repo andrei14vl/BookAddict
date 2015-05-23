@@ -44,7 +44,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
     }
 
     $scope.addReview = function(){
-        $http.post('/review/', {
+        $http.post('/reviews/', {
             bookId : $routeParams.id,
             rating: $scope.rating,
             text: $scope.comment:
