@@ -13,7 +13,7 @@ var routes = require('./routes/index');
 var users = require('./routes/users');
 var auth = require('./auth/auth');
 var books = require('./routes/books');
-var recomandation = require('./routes/recomandation');
+var recommendation = require('./routes/recommendation');
 var readBooks = require('./routes/readBooks');
 var wishlist = require('./routes/wishlist');
 var search = require('./routes/search');
@@ -98,7 +98,7 @@ app.post('/logout', function(req, res) {
 app.use('/', routes);
 app.use('/users', users);
 app.use('/books', books);
-app.use('/recomandation', recomandation);
+app.use('/recommendation', recommendation);
 app.use('/readBooks', readBooks);
 app.use('/wishlist', wishlist);
 app.use('/search', search);

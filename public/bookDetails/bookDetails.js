@@ -47,7 +47,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         $http.post('/reviews/', {
             bookId : $routeParams.id,
             rating: $scope.rating,
-            text: $scope.comment:
+            text: $scope.comment
         })
             .success(function(data) {
                 $scope.book = data;
