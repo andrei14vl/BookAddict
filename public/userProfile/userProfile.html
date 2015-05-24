@@ -1,31 +1,28 @@
 <div>
-<p>Profile page for {{currentUser.username}}</p>
+	<h3>Select your favourite genres</h3> <p>(These help us bring you relevant recommendations)</p>
+
+	<div id="genres">
+		<div class="checkbox checkbox-primary checkbox-inline" ng-repeat="category in categories">
+			<input id="checkbox{{category.id}}" type="checkbox" name="category.name"
+			ng-change="updateCategory(category.id, category.checked)"
+			ng-model="category.checked"
+			>
+			<label for="checkbox{{category.id}}"> {{category.name}} </label>
+		</div>
+	</div>
 
 
-<div id="genres">
-</div>
+	<h3>Books that you've read: </h3>	
+	<ul>
+		<li ng-repeat="book in books" class="inline-item">
+			<a href="#/bookDetails/{{book.id}}">
 
- <ul>
-    <li ng-repeat="category in categories">
-		 <input type="checkbox" name=category.name
-		 ng-change="updateCategory(category.id, category.checked)"
-		 ng-model="category.checked"
-		 >
-		 {{category.name}}
-		 <br>
-    </li>
- </ul>
-
- <ul>
-    <li ng-repeat="book in books">
-   		<a href="#/bookDetails/{{book.id}}">
-	      	<p>{{book.title}}</p>
-
-	      	<div>{{book.author}}</div>
-	      	<img src={{book.image}} width="100px" height="100px"/>
-      	</a>
-    </li>
- </ul>
+				<img src="{{book.image}}" width="150" height="150" border="0">
+				<p class="book-title">{{book.title}}</p>
+				<p class="book-author">{{book.author}}</p>
+			</a>
+		</li>
+	</ul>
 
 
 </div>
