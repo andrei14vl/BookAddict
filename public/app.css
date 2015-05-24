@@ -23,6 +23,11 @@
   color: #666;
 }
 
+.inline-stars {
+  display: inline-block;
+}
+
+/**/
 
 a {
     text-decoration: none !important;

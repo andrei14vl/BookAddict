@@ -1,22 +1,24 @@
 <div>
 	
+	<div class="book-container" style="display:block; height: 180px;">
 	<img style="float:left; margin: 10px;" src={{book.image}} width="150" height="150"/>
 	<h3>{{book.title}}</h3>
-
 	<h4>{{book.author}}</h4>
-
 	<p>{{book.description}}</p>
+	</div>
 
 	<div class="book-ratings">
-	Mystery and Suspicion: <div style="display: inline-block;"star-rating ng-model="book.misteryAndSuspicion" max="10" ></div> <br>
-	Beautiful Language: <div style="display: inline-block;"star-rating ng-model="book.beautifulLanguage" max="10" ></div> <br>
-	Complex Relationships: <div style="display: inline-block;"star-rating ng-model="book.complexRelationships" max="10" ></div> <br>
-	Intriguing characters: <div style="display: inline-block;"star-rating ng-model="book.intriguingCharacters" max="10" ></div> <br>
-	Immersive storylines: <div style="display: inline-block;"star-rating ng-model="book.immersiveStorylines" max="10" ></div> <br>
+	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="book.misteryAndSuspicion" readonly="true" max="10" ></div> <br>
+	Beautiful Language: <div class="inline-stars" star-rating ng-model="book.beautifulLanguage" readonly="true" max="10" ></div> <br>
+	Complex Relationships: <div class="inline-stars" star-rating ng-model="book.complexRelationships" readonly="true" max="10" ></div> <br>
+	Intriguing characters: <div class="inline-stars" star-rating ng-model="book.intriguingCharacters" readonly="true" max="10" ></div> <br>
+	Immersive storylines: <div class="inline-stars" star-rating ng-model="book.immersiveStorylines" readonly="true" max="10" ></div> <br>
 	</div>
 
 	<button class="btn btn-primary" id="readBook" ng-click="readBook()" ng-hide="book.isRead">I read this</button>
-	<button class="btn btn-warning" id="addToWishList" ng-click="addToWishList()" ng-hide="book.isInWishlist">Add to wish list</button>
+	<button class="btn btn-warning" id="addToWishList" ng-click="addToWishList()" ng-hide="book.isInWishlist">Add to wishlist</button>
+	<button class="btn btn-warning" id="addToWishList" ng-click="removeFromWishlist()" ng-hide="!book.isInWishlist">Remove from wishlist</button>
+
 	
 	<p>Reviews:</p>
 	 <ul>
@@ -29,12 +31,12 @@
 
 	 <div ng-hide="book.isReviewed"> 
 		<br>
-		Rating: <input type="text" ng-model="rating"><br>
-		Mystery and Suspicion: <input type="text" ng-model="misteryAndSuspicion"><br>
-		Beautiful Language: <input type="text" ng-model="beautifulLanguage"><br>
-		Complex Relationships: <input type="text" ng-model="complexRelationships"><br>
-		Intriguing characters: <input type="text" ng-model="intriguingCharacters"><br>
-		Immersive storylines: <input type="text" ng-model="immersiveStorylines"><br>
+	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="rating" max="10" ></div> <br>
+	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="misteryAndSuspicion" max="10" ></div> <br>
+	Beautiful Language: <div class="inline-stars" star-rating ng-model="beautifulLanguage" max="10" ></div> <br>
+	Complex Relationships: <div class="inline-stars" star-rating ng-model="complexRelationships" max="10" ></div> <br>
+	Intriguing characters: <div class="inline-stars" star-rating ng-model="intriguingCharacters" max="10" ></div> <br>
+	Immersive storylines: <div class="inline-stars" star-rating ng-model="immersiveStorylines" max="10" ></div> <br>
 		
 		Review: <input type="text" ng-model="comment"><br>
 		<button ng-click="addReview()">Add review</button>

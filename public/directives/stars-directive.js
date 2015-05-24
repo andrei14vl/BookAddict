@@ -17,6 +17,7 @@ angular.module('myApp.starRating', ['ngRoute'])
       readonly: "=?"
     },
     link : function(scope, elem, attrs) {
+      if( !scope.ratingValue) scope.ratingValue = 5;
       if (scope.max == undefined) { scope.max = 5; }
       function updateStars() {
         scope.stars = [];
