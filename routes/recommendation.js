@@ -7,7 +7,7 @@ var knn = require('alike');
 router.get('/', function(req, res, next){
 	var currentUser = req.user;
 	var options = {
-		k: 50,
+		k: 5,
 		weights:{
 			misteryAndSuspicion: 0.2,
 			beautifulLanguage: 0.2,
