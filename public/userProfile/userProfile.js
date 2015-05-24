@@ -13,22 +13,64 @@ angular.module('myApp.userProfile', ['ngRoute'])
 
     $http.get('/genres')
         .success(function(data) {
-            for(var genre in data)
-            {
-                var doc = document.getElementById("genres");
-                var input = document.createElement("input");
-                var name = document.createElement("label");
-                input.type = "checkbox";
-                input.id = data[genre].name;
-                name.innerHTML = data[genre].name;
-                name.htmlFor = data[genre].name;
-                doc.appendChild(input);
-                doc.appendChild(name);
-                doc.appendChild(document.createElement("br"));
+            $scope.categories = data;
+
+            for(var cat = 0; cat != $scope.categories.length; cat++){
+                $scope.categories[cat].checked = false;
             }
+
+            $http.get('genres/user')
+               .success(function(data) {
+                    $scope.checked = data;
+
+                    for(var ckd = 0; ckd != $scope.checked.length; ckd++){
+                        for(var cat = 0; cat != $scope.categories.length; cat++){
+                            if($scope.categories[cat].name == $scope.checked[ckd].name)
+                                $scope.categories[cat].checked = true;
+                        }
+                    }
+
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+            });
         })
         .error(function(data) {
             console.log('Error: ' + data);
     });
     
+    
+    var updateSelected = function(action, id) {
+        if (action == 'add') {
+
+            $http.post('/genres/', {
+                genredId : id 
+            })
+                .success(function(data) {
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+            });
+
+
+        }
+        if (action == 'remove') {
+
+            $http.delete('/genres/', {
+                genredId : id 
+            })
+                .success(function(data) {
+            })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+            });
+        }
+    };
+
+    $scope.updateCategory = function(id, checked) {
+
+        var action = (checked ? 'add' : 'remove');
+        updateSelected(action, id);
+    };
+
 }]);

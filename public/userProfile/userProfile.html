@@ -3,7 +3,17 @@
 
 
 <div id="genres">
-	/genres
-	/genres/user
 </div>
+
+ <ul>
+    <li ng-repeat="category in categories">
+		 <input type="checkbox" name=category.name
+		 ng-change="updateCategory(category.id, category.checked)"
+		 ng-model="category.checked"
+		 >
+		 {{category.name}}
+		 <br>
+    </li>
+ </ul>
+
 </div>
