@@ -81,11 +81,8 @@ angular.module('myApp.userProfile', ['ngRoute'])
     $scope.getPreferences = function() {
         $http.get('preferences')
                .success(function(data) {
-                    $scope.misteryAndSuspicion = data.misteryAndSuspicion;
-                    $scope.beautifulLanguage = data.beautifulLanguage;
-                    $scope.complexRelationships = data.complexRelationships;
-                    $scope.intriguingCharacters = data.intriguingCharacters;
-                    $scope.immersiveStorylines = immersiveStorylines;
+                    $scope.preferences = data;
+                    
                 })
                 .error(function(data) {
                     console.log('Error: ' + data);
@@ -97,11 +94,11 @@ angular.module('myApp.userProfile', ['ngRoute'])
     $scope.savePreferences = function() {
 
             $http.post('/preferences/', {
-                misteryAndSuspicion: $scope.misteryAndSuspicion,
-                beautifulLanguage: $scope.beautifulLanguage,
-                complexRelationships: $scope.complexRelationships,
-                intriguingCharacters: $scope.intriguingCharacters,
-                immersiveStorylines: $scope.immersiveStorylines
+                misteryAndSuspicion: $scope.preferences.misteryAndSuspicion,
+                beautifulLanguage: $scope.preferences.beautifulLanguage,
+                complexRelationships: $scope.preferences.complexRelationships,
+                intriguingCharacters: $scope.preferences.intriguingCharacters,
+                immersiveStorylines: $scope.preferences.immersiveStorylines
             })
                 .success(function(data) {
                 })
