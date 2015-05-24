@@ -1,7 +1,6 @@
 <div>
-	<h4>Welcome, {{currentUser.username}}</h4>
+	<h3>Welcome, {{currentUser.username}}</h3>
 	<p>Here is your wishlist: </p>
-	<p> 
 		<ul>
 			<li ng-repeat="book in books" class="inline-item">
 				<a href="#/bookDetails/{{book.id}}">
