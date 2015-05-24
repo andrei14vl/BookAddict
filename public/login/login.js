@@ -24,7 +24,7 @@ angular.module('myApp.login', ['ngRoute'])
       // No error: authentication OK
       $rootScope.message = 'Authentication successful!';
       $rootScope.currentUser = user
-      $location.url('/');
+      $location.url('/mainPage');
     })
     .error(function(){
       // Error: authentication failed

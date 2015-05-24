@@ -24,7 +24,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
             bookId : $routeParams.id
         })
             .success(function(data) {
-                $scope.book = data;
+                $rootScope.message = "Succesfully added to your read books list!";
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -50,7 +50,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
             text: $scope.comment
         })
             .success(function(data) {
-                $scope.book = data;
+                $rootScope.message = "Succesfully added to your wishlist!";
             })
             .error(function(data) {
                 console.log('Error: ' + data);

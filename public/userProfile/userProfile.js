@@ -9,7 +9,7 @@ angular.module('myApp.userProfile', ['ngRoute'])
   });
 }])
 
-.controller('UserProfileCtrl', ['$scope','$http', function($scope, $http) {
+.controller('UserProfileCtrl', ['$scope','$http', '$rootScope', function($scope, $http, $rootScope) {
 
     $http.get('/genres')
         .success(function(data) {
@@ -51,13 +51,10 @@ angular.module('myApp.userProfile', ['ngRoute'])
                 .error(function(data) {
                     console.log('Error: ' + data);
             });
-
-
         }
         if (action == 'remove') {
 
-            $http.delete('/genres/', {
-                genreId : id 
+            $http.delete('/genres/' + id, {
             })
                 .success(function(data) {
             })
@@ -72,5 +69,13 @@ angular.module('myApp.userProfile', ['ngRoute'])
         var action = (checked ? 'add' : 'remove');
         updateSelected(action, id);
     };
+
+    $http.get('/readbooks/user/' + $rootScope.currentUser.id)
+        .success(function(data) {
+            $scope.books = data;
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
 
 }]);
