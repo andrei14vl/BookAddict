@@ -64,7 +64,7 @@ router.delete('/:id', function(req, res, next){
 		res.send(401);
 	models.Genre.find({
 		where:{
-			id: req.params.is
+			id: req.params.id
 		}
 	}).then(function(genre){
 
