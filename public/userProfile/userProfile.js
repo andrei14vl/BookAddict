@@ -78,4 +78,36 @@ angular.module('myApp.userProfile', ['ngRoute'])
             console.log('Error: ' + data);
         });
 
+    $scope.getPreferences = function() {
+        $http.get('preferences')
+               .success(function(data) {
+                    misteryAndSuspicion = data.misteryAndSuspicion;
+                    beautifulLanguage = data.beautifulLanguage;
+                    complexRelationships = data.complexRelationships;
+                    intriguingCharacters = data.intriguingCharacters;
+                    immersiveStorylines = immersiveStorylines;
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+            });
+    }
+
+    $scope.getPreferences();
+
+    $scope.savePreferences = function() {
+
+            $http.post('/preferences/', {
+                misteryAndSuspicion: misteryAndSuspicion,
+                beautifulLanguage:beautifulLanguage,
+                complexRelationships:complexRelationships,
+                intriguingCharacters:intriguingCharacters,
+                immersiveStorylines:immersiveStorylines
+            })
+                .success(function(data) {
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+            });
+    }
+
 }]);
