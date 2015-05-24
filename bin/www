@@ -28,9 +28,9 @@ var users = models.User.bulkCreate([{
     email: "admin@admin.admin", 
     password: "admin" 
   }, {
-    username: "gcooper0",
+    username: "user1",
     email: "pday0@utexas.edu",
-    password: "NkBqip8A"
+    password: "user1"
   }, {
     username: "jhamilton1",
     email: "lmurphy1@ovh.net",
