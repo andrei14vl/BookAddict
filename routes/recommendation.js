@@ -16,10 +16,26 @@ router.get('/', function(req, res, next){
 			immersiveStorylines: 0.2	
 		}
 	};
-	models.Books.findAll().then(function(books){
-		currentUser.getPreferences().then(function(preferences){
+	models.Book.findAll().then(function(books){
+
+		models.Preference.find({
+			where:{
+				userId: currentUser.id
+			}
+		}).then(function(preferences){
+			console.log("aici?");
+			if(preferences == null)
+			{
+				preferences={
+					misteryAndSuspicion: 5,
+					beautifulLanguage: 5,
+					complexRelationships: 5,
+					intriguingCharacters: 5,
+					immersiveStorylines: 5
+				};
+			}
 			var recommend = knn(preferences, books, options);
-			console.log("luck"+JSON.stringify(recommend, null, 4));
+			console.log("luck"+JSON.stringify(preferences, null, 4));
 			res.send(recommend);
 		}).catch(function(err){
 			res.send(err.Message);
@@ -27,7 +43,12 @@ router.get('/', function(req, res, next){
 	}).catch(function(err){
 		res.send(err.Message);
 	});
-
+	// models.Book.findAll()
+	// 	.then(function(books){
+	// 		res.send(books);
+	// }).catch(function(err){
+	// 	res.send(404);
+	// });
 });
 
 
