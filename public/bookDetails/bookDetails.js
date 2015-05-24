@@ -55,7 +55,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         })
             .success(function(data) {
                 $rootScope.message = "Succesfully added!";
-                location.reload();
+                $scope.getReviews();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -63,11 +63,15 @@ angular.module('myApp.bookDetails', ['ngRoute'])
     }
 
 
-    $http.get('/reviews/book/' + $routeParams.id)
+    $scope.getReviews = function(){
+        $http.get('/reviews/book/' + $routeParams.id)
         .success(function(data) {
             $scope.reviews = data;
         })
         .error(function(data) {
             console.log('Error: ' + data);
         });
+    }
+
+    $scope.getReviews();
 }]);
