@@ -60,4 +60,13 @@ angular.module('myApp.bookDetails', ['ngRoute'])
                 console.log('Error: ' + data);
         });
     }
+
+
+    $http.get('/reviews/book/' + $routeParams.id)
+        .success(function(data) {
+            $scope.reviews = data;
+        })
+        .error(function(data) {
+            console.log('Error: ' + data);
+        });
 }]);
