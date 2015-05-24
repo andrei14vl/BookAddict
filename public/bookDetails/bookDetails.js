@@ -54,7 +54,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
             text: $scope.comment
         })
             .success(function(data) {
-                $rootScope.message = "Succesfully added to your wishlist!";
+                $rootScope.message = "Succesfully added!";
             })
             .error(function(data) {
                 console.log('Error: ' + data);
