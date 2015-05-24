@@ -24,13 +24,6 @@ module.exports = function(sequelize, DataTypes){
 	        	type: DataTypes.INTEGER,
 	        	defaultValue: 5
 	      	}
-		},
-		{
-			classMethods: {
-				asssociate: function(models){
-					Preference.belongsTo(models.User);
-				}
-			}
 		}
 	);
 

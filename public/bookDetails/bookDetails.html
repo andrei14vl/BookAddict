@@ -1,10 +1,10 @@
 <div>
 	
-	<div class="book-container" style="display:block; height: 180px;">
+	<div class="book-container" style="display:block; min-height: 180px; max-height: 400px;" >
 	<img style="float:left; margin: 10px;" src={{book.image}} width="150" height="150"/>
 	<h3>{{book.title}}</h3>
 	<h4>{{book.author}}</h4>
-	<p>{{book.description}}</p>
+	<p ng-bind-html="book.description"></p>
 	</div>
 
 	<div class="book-ratings">
@@ -20,7 +20,24 @@
 	<button class="btn btn-warning" id="addToWishList" ng-click="removeFromWishlist()" ng-hide="!book.isInWishlist">Remove from wishlist</button>
 
 	
-	<p>Reviews:</p>
+	<hr>
+	 	
+	 <h4>Write a review: </h4>
+	 <div ng-hide="book.isReviewed"> 
+		<br>
+	Rating: <div class="inline-stars" star-rating ng-model="rating" max="5" ></div> <br>
+	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="misteryAndSuspicion" max="10" ></div> <br>
+	Beautiful Language: <div class="inline-stars" star-rating ng-model="beautifulLanguage" max="10" ></div> <br>
+	Complex Relationships: <div class="inline-stars" star-rating ng-model="complexRelationships" max="10" ></div> <br>
+	Intriguing characters: <div class="inline-stars" star-rating ng-model="intriguingCharacters" max="10" ></div> <br>
+	Immersive storylines: <div class="inline-stars" star-rating ng-model="immersiveStorylines" max="10" ></div> <br>
+		
+		Review: <textarea style="margin: 5px;" class="form-control" ng-model="comment" rows="4"></textarea>
+		<button class="btn btn-primary" ng-click="addReview()">Add review</button>
+	</div>
+	<hr>
+
+	<p ng-show="reviews.length > 0">Reviews:</p>
 	 <ul>
 	    <li ng-repeat="review in reviews">
    		 	<p>{{review.text}}</p>
@@ -29,16 +46,4 @@
 	    </li>
 	 </ul>
 
-	 <div ng-hide="book.isReviewed"> 
-		<br>
-	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="rating" max="10" ></div> <br>
-	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="misteryAndSuspicion" max="10" ></div> <br>
-	Beautiful Language: <div class="inline-stars" star-rating ng-model="beautifulLanguage" max="10" ></div> <br>
-	Complex Relationships: <div class="inline-stars" star-rating ng-model="complexRelationships" max="10" ></div> <br>
-	Intriguing characters: <div class="inline-stars" star-rating ng-model="intriguingCharacters" max="10" ></div> <br>
-	Immersive storylines: <div class="inline-stars" star-rating ng-model="immersiveStorylines" max="10" ></div> <br>
-		
-		Review: <input type="text" ng-model="comment"><br>
-		<button ng-click="addReview()">Add review</button>
-	</div>
 </div>

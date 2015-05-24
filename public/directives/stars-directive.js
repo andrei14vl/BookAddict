@@ -13,7 +13,7 @@ angular.module('myApp.starRating', ['ngRoute'])
     scope : {
       ratingValue : "=ngModel",
       max : "=?", //optional: default is 5
-      onRatingSelected : "&?",
+      onratingselected : "&?",
       readonly: "=?"
     },
     link : function(scope, elem, attrs) {
@@ -30,9 +30,11 @@ angular.module('myApp.starRating', ['ngRoute'])
       scope.toggle = function(index) {
         if (scope.readonly == undefined || scope.readonly == false){
           scope.ratingValue = index + 1;
-          scope.onRatingSelected({
+          window.setTimeout(function() {
+            scope.onratingselected({
             rating: index + 1
           });
+          }, 300);
         }
       };
       scope.$watch('ratingValue', function(newVal, oldVal) {

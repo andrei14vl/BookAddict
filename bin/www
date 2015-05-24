@@ -2131,15 +2131,6 @@ sequelize.query('INSERT INTO `Books` (`createdAt`,`updatedAt`,`id`, `image`, `au
 
 
 
-
-
-
-
-
-
-
-
-
 sequelize.query('INSERT INTO `BookGenre` (`createdAt`,`updatedAt`,`BookId`, `GenreId`) values ("2015-05-24 09:41:26.000 +00:00","2015-05-24 09:41:26.000 +00:00", 133969, "9");') }).then(function () {
 sequelize.query('INSERT INTO `BookGenre` (`createdAt`,`updatedAt`,`BookId`, `GenreId`) values ("2015-05-24 09:41:26.000 +00:00","2015-05-24 09:41:26.000 +00:00", 133971, "1");') }).then(function () {
 sequelize.query('INSERT INTO `BookGenre` (`createdAt`,`updatedAt`,`BookId`, `GenreId`) values ("2015-05-24 09:41:26.000 +00:00","2015-05-24 09:41:26.000 +00:00", 133972, "2");') }).then(function () {
@@ -4200,11 +4191,6 @@ var book = models.Book.find({
       })
   });
 */
-
-
-
-
-
 
 
 

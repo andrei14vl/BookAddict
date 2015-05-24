@@ -10,17 +10,18 @@
 			<label for="checkbox{{category.id}}"> {{category.name}} </label>
 		</div>
 	</div>
-
+	<br><br><br><br>
 	<div>
 		<h4>Recommendation preferences</h3> 
 		<br>
-		Mystery and Suspicion: <input type="text" ng-model="misteryAndSuspicion"><br>
-		Beautiful Language: <input type="text" ng-model="beautifulLanguage"><br>
-		Complex Relationships: <input type="text" ng-model="complexRelationships"><br>
-		Intriguing characters: <input type="text" ng-model="intriguingCharacters"><br>
-		Immersive storylines: <input type="text" ng-model="immersiveStorylines"><br>
 		
-		<button ng-click="savePreferences()">Save</button>
+		<div class="book-ratings">
+		Mystery and Suspicion: <div style="display: inline-block;"star-rating ng-model="preferences.misteryAndSuspicion" max="10" onratingselected="savePreferences(rating)"></div> <br>
+		Beautiful Language: <div style="display: inline-block;"star-rating ng-model="preferences.beautifulLanguage" max="10" onratingselected="savePreferences(rating)"></div> <br>
+		Complex Relationships: <div style="display: inline-block;"star-rating ng-model="preferences.complexRelationships" max="10" onratingselected="savePreferences(rating)"></div> <br>
+		Intriguing characters: <div style="display: inline-block;"star-rating ng-model="preferences.intriguingCharacters" max="10" onratingselected="savePreferences(rating)"></div><br>
+		Immersive storylines: <div style="display: inline-block;"star-rating ng-model="preferences.immersiveStorylines" max="10" onratingselected="savePreferences(rating)" ></div> <br>
+		</div>
 	</div>
 
 
