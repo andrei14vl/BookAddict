@@ -14,7 +14,7 @@ router.get('/', function(req, res, next){
 
 
 router.get("/book/:id", function(req, res, next){
-	var book = models.Book.find({
+	models.Book.find({
 		where:{
 			id: req.params.id
 		}

@@ -36,10 +36,9 @@ router.get('/user', function(req, res, next){
 /* User adds a new liked genre */
 router.post('/', function(req, res, next){
 	var currentUser = req.user;
-	if(typeof currentUser==="undefined")
-	{
-		res.send("Only authenticated users can mark a genre as liked.");
-	}
+	
+	if(!req.isAuthenticated())
+		res.send(401);
 
 	models.Genre.find({
 		where:{
@@ -59,10 +58,9 @@ router.post('/', function(req, res, next){
 
 router.delete('/:id', function(req, res, next){
 	var currentUser = req.user;
-	if(typeof currentUser==="undefined")
-	{
-		res.send("Only authenticated users can unlike genres.");
-	}
+	
+	if(!req.isAuthenticated())
+		res.send(401);
 
 	models.Genre.destroy({
 		where:{
