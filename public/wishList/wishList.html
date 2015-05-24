@@ -1,6 +1,7 @@
 <div>
 	<h3>Welcome, {{currentUser.username}}</h3>
-	<p>Here is your wishlist: </p>
+	<h3 ng-hide="books.length > 0">There are no books in your wishlist</h3>
+	<h3 ng-show="books.length > 0">Here is your wishlist: </h3>
 		<ul>
 			<li ng-repeat="book in books" class="inline-item">
 				<a href="#/bookDetails/{{book.id}}">
