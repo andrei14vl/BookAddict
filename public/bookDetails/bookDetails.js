@@ -46,7 +46,11 @@ angular.module('myApp.bookDetails', ['ngRoute'])
     $scope.addReview = function(){
         $http.post('/reviews/', {
             bookId : $routeParams.id,
-            rating: $scope.rating,
+            complexRelationships: $scope.complexRelationships,
+            misteryAndSuspicion: $scope.misteryAndSuspicion,
+            beautifulLanguage: $scope.beautifulLanguage,
+            intriguingCharacters: $scope.intriguingCharacters,
+            immersiveStorylines: $scope.immersiveStorylines,
             text: $scope.comment
         })
             .success(function(data) {
