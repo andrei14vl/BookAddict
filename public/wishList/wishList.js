@@ -11,7 +11,7 @@ angular.module('myApp.wishList', ['ngRoute'])
 
 .controller('WishListCtrl', ['$scope','$http', '$rootScope', function($scope, $http, $rootScope) {
 
-    $http.get('/wishlist/user/' + $rootScope.currentUser.id)
+    $scope.getWishlist = function() { $http.get('/wishlist/user/' + $rootScope.currentUser.id)
         .success(function(data) {
             $scope.books = data;
         })
@@ -19,10 +19,12 @@ angular.module('myApp.wishList', ['ngRoute'])
             console.log('Error: ' + data);
         });
 
+    }
+    $scope.getWishlist();
     $scope.remove = function($bookId){
         $http.delete('/wishlist/'+$bookId)
             .success(function(data) {
-                location.reload();
+            $scope.getWishlist();    
             })
             .error(function(data) {
                 console.log('Error: ' + data);
