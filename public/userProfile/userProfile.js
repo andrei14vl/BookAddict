@@ -44,7 +44,7 @@ angular.module('myApp.userProfile', ['ngRoute'])
         if (action == 'add') {
 
             $http.post('/genres/', {
-                genredId : id 
+                genreId : id 
             })
                 .success(function(data) {
                 })
@@ -57,7 +57,7 @@ angular.module('myApp.userProfile', ['ngRoute'])
         if (action == 'remove') {
 
             $http.delete('/genres/', {
-                genredId : id 
+                genreId : id 
             })
                 .success(function(data) {
             })
