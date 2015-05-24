@@ -10,7 +10,8 @@ angular.module('myApp', [
   'myApp.version',
   'myApp.login',
   'myApp.register',
-  'myApp.search'
+  'myApp.search',
+  'myApp.starRating'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});

@@ -1,17 +1,22 @@
 <div>
-	<p>{{book.title}}</p>
+	
+	<img style="float:left; margin: 10px;" src={{book.image}} width="150" height="150"/>
+	<h3>{{book.title}}</h3>
 
-	<div>{{book.author}}</div>
-	<img src={{book.image}} width="500px" height="500px"/>
+	<h4>{{book.author}}</h4>
 
-	<div>{{book.description}}</div>
-	Mystery and Suspicion: {{book.misteryAndSuspicion}} <br>
-	Beautiful Language: {{book.beautifulLanguage}} <br>
-	Complex Relationships: {{book.complexRelationships}} <br>
-	Intriguing characters: {{book.intriguingCharacters}} <br>
-	Immersive storylines: {{book.immersiveStorylines}} <br>
-	<button id="readBook" ng-click="readBook()" ng-hide="book.isRead">I read this</button>
-	<button id="addToWishList" ng-click="addToWishList()" ng-hide="book.isInWishlist">Add to wish list</button>
+	<p>{{book.description}}</p>
+
+	<div class="book-ratings">
+	Mystery and Suspicion: <div style="display: inline-block;"star-rating ng-model="book.misteryAndSuspicion" max="10" ></div> <br>
+	Beautiful Language: <div style="display: inline-block;"star-rating ng-model="book.beautifulLanguage" max="10" ></div> <br>
+	Complex Relationships: <div style="display: inline-block;"star-rating ng-model="book.complexRelationships" max="10" ></div> <br>
+	Intriguing characters: <div style="display: inline-block;"star-rating ng-model="book.intriguingCharacters" max="10" ></div> <br>
+	Immersive storylines: <div style="display: inline-block;"star-rating ng-model="book.immersiveStorylines" max="10" ></div> <br>
+	</div>
+
+	<button class="btn btn-primary" id="readBook" ng-click="readBook()" ng-hide="book.isRead">I read this</button>
+	<button class="btn btn-warning" id="addToWishList" ng-click="addToWishList()" ng-hide="book.isInWishlist">Add to wish list</button>
 	
 	<p>Reviews:</p>
 	 <ul>
