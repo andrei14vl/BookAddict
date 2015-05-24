@@ -6,7 +6,7 @@ var router=express.Router();
 /* Get books read by an user */
 
 router.get('/user/:id', function(req, res, next){
-	var readBooks=models.User.find({
+	models.User.find({
 		where:{
 			id: req.params.id
 		}
@@ -29,12 +29,11 @@ router.get('/user/:id', function(req, res, next){
 router.post('/', function(req, res, next){
 
 	var currentUser = req.user;
-	if(typeof currentUser==="undefined")
-	{
-		res.send("Only authenticated users can mark a book as read.");
-	}
+	
+	if(!req.isAuthenticated())
+		res.send(401);
 
-	var book = models.Book.find({
+	models.Book.find({
 		where: {
 			id: req.body.bookId
 		}

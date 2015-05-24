@@ -15,7 +15,7 @@ router.get('/', function(req, res, next){
 
 
 router.get('/test/:id', function(req, res, next){
-	var readBooks=models.User.findAll({
+	models.User.findAll({
 		where:{
 			id: req.params.id
 		}
