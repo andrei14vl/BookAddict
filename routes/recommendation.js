@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var models  = require('../models');
-
+var knn = require('alike');
 
 
 router.get('/', function(req, res, next){
@@ -12,6 +12,8 @@ router.get('/', function(req, res, next){
 		res.send(404);
 	});
 });
+
+
 
 
 router.get('/test/:id', function(req, res, next){
