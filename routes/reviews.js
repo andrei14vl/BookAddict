@@ -29,7 +29,8 @@ router.post('/', function(req, res, next){
 			id:req.body.bookId 
 		}
 	}).then(function(book){
-		BookReview.count({
+		
+		models.Review.count({
 			where:{
 				bookId:req.body.bookId
 			}
