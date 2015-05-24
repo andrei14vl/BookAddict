@@ -1,5 +1,17 @@
 /* app css stylesheet */
 
+a {
+    text-decoration: none !important;
+}
+
+.fa.fa-times {
+  color: #d9534f;
+}
+
+.fa.fa-times:hover {
+  color: #c9302c;
+  cursor: pointer;
+}
 
 .inline-item{
 display: inline-block;
