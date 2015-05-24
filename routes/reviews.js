@@ -5,7 +5,7 @@ var router=express.Router();
 /* A book's reviews */
 router.get('/book/:id', function(req, res, next){
 	
-	models.BookReview.findAll({
+	models.Review.findAll({
 		where:{
 			bookId: req.params.id
 		}
