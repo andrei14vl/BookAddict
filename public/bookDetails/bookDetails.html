@@ -1,10 +1,10 @@
 <div>
 	
-	<div class="book-container" style="display:block; height: 180px;">
+	<div class="book-container" style="display:block; min-height: 180px; max-height: 400px;" >
 	<img style="float:left; margin: 10px;" src={{book.image}} width="150" height="150"/>
 	<h3>{{book.title}}</h3>
 	<h4>{{book.author}}</h4>
-	<p>{{book.description}}</p>
+	<p ng-bind-html="book.description"></p>
 	</div>
 
 	<div class="book-ratings">
