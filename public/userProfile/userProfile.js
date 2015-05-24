@@ -91,7 +91,7 @@ angular.module('myApp.userProfile', ['ngRoute'])
 
     $scope.getPreferences();
 
-    $scope.savePreferences = function() {
+    $scope.savePreferences = function(rating) {
 
             $http.post('/preferences/', {
                 misteryAndSuspicion: $scope.preferences.misteryAndSuspicion,
