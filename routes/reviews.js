@@ -41,6 +41,7 @@ router.post('/', function(req, res, next){
 				intriguingCharacters: (book.intriguingCharacters * number + req.body.intriguingCharacters)/(number+1),
 				immersiveStorylines: (book.immersiveStorylines * number + req.body.immersiveStorylines)/(number+1)
 			};
+			console.log("mamama ta"+number);
 			book.updateAttributes({
 				misteryAndSuspicion: properties.misteryAndSuspicion,
 				beautifulLanguage: properties.beautifulLanguage,
