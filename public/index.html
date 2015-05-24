@@ -21,9 +21,9 @@
     <li><a href="#/mainPage">MainPage</a></li>
     <li><a href="#/userProfile">User Profile</a></li>
     <li><a href="#/wishList">Wishlist</a></li>
-    <li><a href="#/login">Login</a></li>
-    <li><a href="#/register">Register</a></li>
-    <li ng-click="logout()">Logout</li>
+    <li ng-if="!currentUser.id"><a href="#/login">Login</a></li>
+    <li ng-if="!currentUser.id"><a href="#/register">Register</a></li>
+    <li ng-if="currentUser.id" ng-click="logout()">Logout</li>
     Search: 
     <form ng-submit="runSearch()">
     <input type="text" ng-model="searchText">
