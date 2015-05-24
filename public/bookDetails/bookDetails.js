@@ -55,6 +55,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         })
             .success(function(data) {
                 $rootScope.message = "Succesfully added!";
+                location.reload();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
