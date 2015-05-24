@@ -37,7 +37,7 @@
 	</div>
 	<hr>
 
-	<p>Reviews:</p>
+	<p ng-show="reviews.length > 0">Reviews:</p>
 	 <ul>
 	    <li ng-repeat="review in reviews">
    		 	<p>{{review.text}}</p>
