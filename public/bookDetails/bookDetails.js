@@ -9,7 +9,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
   });
 }])
 
-.controller('BookDetailsCtrl', ['$scope','$http', '$routeParams', function($scope, $http, $routeParams) {
+.controller('BookDetailsCtrl', ['$scope','$http', '$routeParams','$rootScope', function($scope, $http, $routeParams, $rootScope) {
 
     $http.get('/books/book/'+$routeParams.id)
         .success(function(data) {
@@ -36,7 +36,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
             bookId : $routeParams.id
         })
             .success(function(data) {
-                $scope.book = data;
+                $rootScope.message = "Succesfully added to your wishlist!";
             })
             .error(function(data) {
                 console.log('Error: ' + data);
