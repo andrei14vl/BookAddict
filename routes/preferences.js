@@ -18,6 +18,8 @@ router.get('/', function(req, res, next){
 
 /*Create or updates the user's preferences*/
 router.post('/', function(req, res, next){
+	var currentUser = req.user;
+	console.log(req.body);
 	models.Preference.create({
 		misteryAndSuspicion: req.body.misteryAndSuspicion,
 		beautifulLanguage: req.body.beautifulLanguage,
@@ -25,12 +27,15 @@ router.post('/', function(req, res, next){
 		intriguingCharacters: req.body.intriguingCharacters,
 		immersiveStorylines: req.body.immersiveStorylines
 	}).then(function(preference){
-		user.addPreference(preference).then(function(){
+		
+		currentUser.setPreference(preference).then(function(){
 			res.send(preference);
 		}).catch(function(err){
 			res.send(err.Message);
 		})
-	}).catch(res.send(err.Message));
+	}).catch(function(err){
+		res.send(err.Message);
+	});
 });
 
 

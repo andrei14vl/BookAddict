@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
     {
       classMethods: {
         associate: function(models) {
+          User.hasOne(models.Preference);
           User.belongsToMany(models.Genre);
           User.belongsToMany(models.Book, {as: 'BookReview', through: models.Review});
           User.belongsToMany(models.Book, {as: 'Read', through: models.BookRead});
