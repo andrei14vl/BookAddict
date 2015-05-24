@@ -1,16 +1,16 @@
 <div>
-<p>Welcome, {{currentUser.username}}</p>
+<h4>Welcome, {{currentUser.username}}</h4>
 
 
-<p>We recommend really nice books for you: </p>
+<p>Here is what you should read next: </p>
 <p> 
  <ul>
-    <li ng-repeat="book in books">
+    <li ng-repeat="book in books" class="inline-item">
    		<a href="#/bookDetails/{{book.id}}">
-	      	<p>{{book.title}}</p>
-
-	      	<div>{{book.author}}</div>
-	      	<img src={{book.image}} width="100px" height="100px"/>
+	      	
+	      	<img src="{{book.image}}" width="150" height="150" border="0">
+	      	<p class="book-title">{{book.title}}</p>
+	      	<p class="book-author">{{book.author}}</p>
       	</a>
     </li>
  </ul>

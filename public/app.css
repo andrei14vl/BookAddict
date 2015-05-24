@@ -1,5 +1,20 @@
 /* app css stylesheet */
 
+
+.inline-item{
+display: inline-block;
+margin: 10px 30px;
+float: left;
+width: 134px;
+font-size: 0.8em;
+line-height: 1em;
+}
+.book-title{
+  margin-top: 0.2em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
 .container-login {
   max-width: 400px;
   margin: 0 auto;
