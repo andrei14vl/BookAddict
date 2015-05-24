@@ -16,4 +16,16 @@
     </li>
  </ul>
 
+ <ul>
+    <li ng-repeat="book in books">
+   		<a href="#/bookDetails/{{book.id}}">
+	      	<p>{{book.title}}</p>
+
+	      	<div>{{book.author}}</div>
+	      	<img src={{book.image}} width="100px" height="100px"/>
+      	</a>
+    </li>
+ </ul>
+
+
 </div>
