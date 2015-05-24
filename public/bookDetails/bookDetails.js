@@ -49,6 +49,17 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         });
     }
 
+    $scope.removeFromWishlist = function($bookId){
+        $http.delete('/wishlist/' + $routeParams.id)
+            .success(function(data) {
+                $rootScope.message = "Removed this book from your wishlist!";
+                $scope.loadBook();
+            })
+            .error(function(data) {
+                console.log('Error: ' + data);
+        });
+    }
+
     $scope.addReview = function(){
         $http.post('/reviews/', {
             bookId : $routeParams.id,
