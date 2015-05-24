@@ -11,13 +11,17 @@ angular.module('myApp.bookDetails', ['ngRoute'])
 
 .controller('BookDetailsCtrl', ['$scope','$http', '$routeParams','$rootScope', function($scope, $http, $routeParams, $rootScope) {
 
-    $http.get('/books/book/'+$routeParams.id)
+    $scope.loadBook = function(){
+        $http.get('/books/book/'+$routeParams.id)
         .success(function(data) {
             $scope.book = data;
         })
         .error(function(data) {
             console.log('Error: ' + data);
         });
+    }
+
+    $scope.loadBook();
 
     $scope.readBook = function(){
         $http.post('/readBooks/', {
@@ -25,6 +29,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         })
             .success(function(data) {
                 $rootScope.message = "Succesfully added to your read books list!";
+                $scope.loadBook();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -37,6 +42,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
         })
             .success(function(data) {
                 $rootScope.message = "Succesfully added to your wishlist!";
+                $scope.loadBook();
             })
             .error(function(data) {
                 console.log('Error: ' + data);
@@ -56,6 +62,7 @@ angular.module('myApp.bookDetails', ['ngRoute'])
             .success(function(data) {
                 $rootScope.message = "Succesfully added!";
                 $scope.getReviews();
+                $scope.loadBook();
             })
             .error(function(data) {
                 console.log('Error: ' + data);

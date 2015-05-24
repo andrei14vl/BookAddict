@@ -5,11 +5,15 @@
 	<img src={{book.image}} width="500px" height="500px"/>
 
 	<div>{{book.description}}</div>
-
-	<button ng-click="readBook()">I read this</button>
-	<button ng-click="addToWishList()">Add to wish list</button>
+	Mystery and Suspicion: {{book.misteryAndSuspicion}} <br>
+	Beautiful Language: {{book.beautifulLanguage}} <br>
+	Complex Relationships: {{book.complexRelationships}} <br>
+	Intriguing characters: {{book.intriguingCharacters}} <br>
+	Immersive storylines: {{book.immersiveStorylines}} <br>
+	<button id="readBook" ng-click="readBook()" ng-hide="book.isRead">I read this</button>
+	<button id="addToWishList" ng-click="addToWishList()" ng-hide="book.isInWishlist">Add to wish list</button>
 	
-
+	<p>Reviews:</p>
 	 <ul>
 	    <li ng-repeat="review in reviews">
    		 	<p>{{review.text}}</p>
@@ -18,15 +22,16 @@
 	    </li>
 	 </ul>
 
-	<br>
-	Rating: <input type="text" ng-model="rating"><br>
-	Mystery and Suspicion: <input type="text" ng-model="misteryAndSuspicion"><br>
-	Beautiful Language: <input type="text" ng-model="beautifulLanguage"><br>
-	Complex Relationships: <input type="text" ng-model="complexRelationships"><br>
-	Intriguing characters: <input type="text" ng-model="intriguingCharacters"><br>
-	Immersive storylines: <input type="text" ng-model="immersiveStorylines"><br>
-	
-	Review: <input type="text" ng-model="comment"><br>
-	<button ng-click="addReview()">Add review</button>
-
+	 <div ng-hide="book.isReviewed"> 
+		<br>
+		Rating: <input type="text" ng-model="rating"><br>
+		Mystery and Suspicion: <input type="text" ng-model="misteryAndSuspicion"><br>
+		Beautiful Language: <input type="text" ng-model="beautifulLanguage"><br>
+		Complex Relationships: <input type="text" ng-model="complexRelationships"><br>
+		Intriguing characters: <input type="text" ng-model="intriguingCharacters"><br>
+		Immersive storylines: <input type="text" ng-model="immersiveStorylines"><br>
+		
+		Review: <input type="text" ng-model="comment"><br>
+		<button ng-click="addReview()">Add review</button>
+	</div>
 </div>
