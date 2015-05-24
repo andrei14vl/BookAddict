@@ -12,7 +12,7 @@ module.exports = function(sequelize, DataTypes){
 	        	type: DataTypes.INTEGER,
 	        	defaultValue: 0
 	      	},
-	      	complexRelathionships: {
+	      	complexRelationships: {
 	        	type: DataTypes.INTEGER,
 	        	defaultValue: 0
 	      	},
