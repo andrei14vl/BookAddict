@@ -14,6 +14,7 @@ router.get('/', function(req, res, next){
 		})
 });
 
+
 /* Genres liked by an user */
 router.get('/user', function(req, res, next){
 	models.User.find({
@@ -61,19 +62,25 @@ router.delete('/:id', function(req, res, next){
 	
 	if(!req.isAuthenticated())
 		res.send(401);
-
-	models.Genre.destroy({
+	models.Genre.find({
 		where:{
-			$and: [{
-				userId: req.user.id,
-				genreId: req.params.id
-			}, ]
+			id: req.params.is
 		}
-	}).then(function(mxResponse){
-		res.send("Genre unliked.");
+	}).then(function(genre){
+
+		if(genre === null)
+		{
+			return res.send("Genre with ID "+genreId+" not found");
+
+		}
+		currentUser.removeGenre(genre).then(function(){
+			res.send("Genre unliked.");
+		}).catch(function(err){
+			res.send(err.Message);
+		});
 	}).catch(function(err){
 		res.send(err.Message);
-	});
+	})
 });
 
 module.exports=router;
