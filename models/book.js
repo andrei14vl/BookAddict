@@ -7,7 +7,27 @@ module.exports = function(sequelize, DataTypes) {
       title: DataTypes.STRING,
       author: DataTypes.STRING,
       description: DataTypes.STRING,
-      image: DataTypes.STRING
+      image: DataTypes.STRING,
+      misteryAndSuspicion: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      },
+      beautifulLanguage: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      },
+      complexRelathionships: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      },
+      intriguingCharacters: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      },
+      immersiveStorylines: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0
+      }
     }, 
     {
       classMethods: {

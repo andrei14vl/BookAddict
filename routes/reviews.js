@@ -4,7 +4,8 @@ var router=express.Router();
 
 /* A book's reviews */
 router.get('/book/:id', function(req, res, next){
-	var result = models.Review.findAll({
+	
+	models.Review.findAll({
 		where:{
 			bookId: req.params.id
 		}
@@ -19,10 +20,9 @@ router.get('/book/:id', function(req, res, next){
 /* Current logged in user adds a book review*/
 router.post('/', function(req, res, next){
 	var currentUser=req.user;
-	if(typeof currentUser==="undefined")
-	{
-		res.send("Only authenticated users can add books reviews.");
-	}
+
+	if(!req.isAuthenticated())
+		res.send(401);
 
 	models.Book.find({
 		where:{
@@ -51,10 +51,8 @@ router.post('/', function(req, res, next){
 
 router.delete('/:id', function(req, res, next){
 
-	if(typeof req.user==="undefined")
-	{
-		res.send("Only authenticated users can remove their reviews.");
-	}
+	if(!req.isAuthenticated())
+		res.send(401);
 
 	models.Review.destroy({
 		where: {
