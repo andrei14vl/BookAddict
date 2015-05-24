@@ -8,9 +8,26 @@
 
 	<button ng-click="readBook()">I read this</button>
 	<button ng-click="addToWishList()">Add to wish list</button>
+	
+
+	 <ul>
+	    <li ng-repeat="review in reviews">
+   		 	<p>{{review.text}}</p>
+
+	      	<div>{{review.rating}}</div>
+	    </li>
+	 </ul>
+
 	<br>
 	Rating: <input type="text" ng-model="rating"><br>
+	Mystery and Suspicion: <input type="text" ng-model="misteryAndSuspicion"><br>
+	Beautiful Language: <input type="text" ng-model="beautifulLanguage"><br>
+	Complex Relationships: <input type="text" ng-model="complexRelationships"><br>
+	Intriguing characters: <input type="text" ng-model="intriguingCharacters"><br>
+	Immersive storylines: <input type="text" ng-model="immersiveStorylines"><br>
+	
 	Review: <input type="text" ng-model="comment"><br>
 	<button ng-click="addReview()">Add review</button>
+
 
 </div>
