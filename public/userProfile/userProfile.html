@@ -1,0 +1,39 @@
+<div>
+	<h3>Select your favourite genres</h3> <p>(These help us bring you relevant recommendations)</p>
+
+	<div id="genres">
+		<div class="checkbox checkbox-primary checkbox-inline" ng-repeat="category in categories">
+			<input id="checkbox{{category.id}}" type="checkbox" name="category.name"
+			ng-change="updateCategory(category.id, category.checked)"
+			ng-model="category.checked"
+			>
+			<label for="checkbox{{category.id}}"> {{category.name}} </label>
+		</div>
+	</div>
+
+	<div>
+		<h4>Recommendation preferences</h3> 
+		<br>
+		Mystery and Suspicion: <input type="text" ng-model="misteryAndSuspicion"><br>
+		Beautiful Language: <input type="text" ng-model="beautifulLanguage"><br>
+		Complex Relationships: <input type="text" ng-model="complexRelationships"><br>
+		Intriguing characters: <input type="text" ng-model="intriguingCharacters"><br>
+		Immersive storylines: <input type="text" ng-model="immersiveStorylines"><br>
+		
+		<button ng-click="savePreferences()">Save</button>
+	</div>
+
+
+	<h3 ng-hide="books.length > 0">There are no books marked as read</h3>
+	<h3 ng-show="books.length > 0">Books that you've read: </h3>
+	<ul>
+		<li ng-repeat="book in books" class="inline-item">
+			<a href="#/bookDetails/{{book.id}}">
+
+				<img src="{{book.image}}" width="150" height="150" border="0">
+				<p class="book-title">{{book.title}}</p>
+				<p class="book-author">{{book.author}}</p>
+			</a>
+		</li>
+	</ul>
+</div>

@@ -28,19 +28,17 @@ router.get('/user/:id', function(req, res, next){
 router.delete('/:id', function(req, res, next){
 	var currentUser = req.user;
 
-	if(typeof currentUser==="undefined")
-	{
-		res.send("Only authenticated users can remove books from wishlist.");
-	}
+	if(!req.isAuthenticated())
+		res.send(401);
 
-	var book = models.Wishlist.destroy({
+	models.Wishlist.destroy({
 		where:{
 			$and: [{
 				userId: req.user.id,
 				bookId: req.params.id
 			}, ]
 		}
-	}).then(function(book){
+	}).then(function(mxResponse){
 		res.send("Book deleted from wishlist");
 	}).catch(function(err){
 		res.send(err.Message);
@@ -54,10 +52,9 @@ router.delete('/:id', function(req, res, next){
 router.post('/', function(req, res, next){
 
 	var currentUser = req.user;
-	if(typeof currentUser==="undefined")
-	{
-		res.send("Only authenticated users can add books to wishlist.");
-	}
+
+	if(!req.isAuthenticated())
+		res.send(401);
 
 	var book = models.Book.find({
 		where: {

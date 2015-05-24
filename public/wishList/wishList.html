@@ -1,17 +1,19 @@
 <div>
-<p>WishList</p>
-<p> 
- <ul>
-    <li ng-repeat="book in books">
-   		<a href="#/bookDetails/{{book.id}}">
-	      	<p>{{book.title}}</p>
+	<h3>Welcome, {{currentUser.username}}</h3>
+	<h3 ng-hide="books.length > 0">There are no books in your wishlist</h3>
+	<h3 ng-show="books.length > 0">Here is your wishlist: </h3>
+		<ul>
+			<li ng-repeat="book in books" class="inline-item">
+				<a href="#/bookDetails/{{book.id}}">
+					
+					<img src="{{book.image}}" width="150" height="150" border="0">
+				</a>
+				<i class="fa fa-times fa-2x" style="float: right;" ng-click="remove(book.id)"></i>
+				<a href="#/bookDetails/{{book.id}}">
+					<p class="book-title">{{book.title}}</p>
+					<p class="book-author">{{book.author}}</p>
+				</a>
+			</li>
+		</ul>
 
-	      	<div>{{book.author}}</div>
-	      	<img src={{book.image}} width="100px" height="100px"/>
-      	</a>
-	    <button ng-click="remove(book.id)">Remove from wishlist</button>
-
-    </li>
- </ul>
-
-</div>
+	</div>

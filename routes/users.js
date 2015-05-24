@@ -4,7 +4,7 @@ var models  = require('../models');
 
 /* GET users listing. */
 router.get('/', function(req, res, next){
-	var users = models.User.findAll()
+	models.User.findAll()
 		.then(function(myUsers){
 			res.send(myUsers);
 
@@ -12,7 +12,7 @@ router.get('/', function(req, res, next){
 });
 
 router.get('/:id', function(req, res, next) {
-  	var users = models.User.find({
+  	models.User.find({
 		where:{
 			id: req.params.id
 		}
@@ -23,8 +23,8 @@ router.get('/:id', function(req, res, next) {
 });
 
 router.post('/', function(req, res, next) {
-	console.log(req.body);
-	var users = models.User.create({
+	
+	models.User.create({
 		username: req.body.username, 
 		email: req.body.email, 
 		password: req.body.password 

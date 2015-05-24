@@ -4,13 +4,14 @@
 angular.module('myApp', [
   'ngRoute',
   'myApp.mainPage',
-  'myApp.view2',
+  'myApp.userProfile',
   'myApp.bookDetails',
   'myApp.wishList',
   'myApp.version',
   'myApp.login',
   'myApp.register',
-  'myApp.search'
+  'myApp.search',
+  'myApp.starRating'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.otherwise({redirectTo: '/'});
