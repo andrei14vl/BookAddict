@@ -9,12 +9,13 @@ angular.module('myApp.bookDetails', ['ngRoute'])
   });
 }])
 
-.controller('BookDetailsCtrl', ['$scope','$http', '$routeParams','$rootScope', function($scope, $http, $routeParams, $rootScope) {
+.controller('BookDetailsCtrl', ['$scope','$http', '$routeParams','$rootScope', '$sce', function($scope, $http, $routeParams, $rootScope, $sce) {
 
     $scope.loadBook = function(){
         $http.get('/books/book/'+$routeParams.id)
         .success(function(data) {
             $scope.book = data;
+            $scope.book.description = $sce.trustAsHtml($scope.book.description);
         })
         .error(function(data) {
             console.log('Error: ' + data);
