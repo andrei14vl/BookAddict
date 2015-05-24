@@ -30,9 +30,11 @@ angular.module('myApp.starRating', ['ngRoute'])
       scope.toggle = function(index) {
         if (scope.readonly == undefined || scope.readonly == false){
           scope.ratingValue = index + 1;
-          scope.onratingselected({
+          window.setTimeout(function() {
+            scope.onratingselected({
             rating: index + 1
           });
+          }, 300);
         }
       };
       scope.$watch('ratingValue', function(newVal, oldVal) {
