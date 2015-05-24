@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes){
 	var Preference = sequelize.define(
-		"preference",
+		"Preference",
 		{
 			misteryAndSuspicion: {
 		        type: DataTypes.INTEGER,
