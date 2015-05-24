@@ -5,12 +5,29 @@ var knn = require('alike');
 
 
 router.get('/', function(req, res, next){
-	models.Book.findAll()
-		.then(function(books){
-			res.send(books);
+	var currentUser = req.user;
+	var options = {
+		k: 50,
+		weights:{
+			misteryAndSuspicion: 0.2,
+			beautifulLanguage: 0.2,
+			complexRelationships: 0.2,
+			intriguingCharacters: 0.2,
+			immersiveStorylines: 0.2	
+		}
+	};
+	models.Books.findAll().then(function(books){
+		currentUser.getPreferences().then(function(preferences){
+			var recommend = knn(preferences, books, options);
+			console.log("luck"+JSON.stringify(recommend, null, 4));
+			res.send(recommend);
+		}).catch(function(err){
+			res.send(err.Message);
+		});
 	}).catch(function(err){
-		res.send(404);
+		res.send(err.Message);
 	});
+
 });
 
 
