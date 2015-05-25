@@ -36,6 +36,7 @@ router.post('/', function(req, res, next){
 			}
 		}).then(function(number){
 			var properties = {
+				rating: (book.rating * number + req.body.rating)/(number+1),
 				misteryAndSuspicion: (book.misteryAndSuspicion * number + req.body.misteryAndSuspicion)/(number+1),
 				beautifulLanguage: (book.beautifulLanguage * number + req.body.beautifulLanguage)/(number+1),
 				complexRelationships: (book.complexRelationships * number + req.body.complexRelationships)/(number+1),
@@ -44,6 +45,7 @@ router.post('/', function(req, res, next){
 			};
 
 			book.updateAttributes({
+				rating: properties.rating,
 				misteryAndSuspicion: properties.misteryAndSuspicion,
 				beautifulLanguage: properties.beautifulLanguage,
 				complexRelationships: properties.complexRelationships,
