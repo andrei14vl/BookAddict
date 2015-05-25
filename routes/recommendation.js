@@ -23,7 +23,7 @@ router.get('/', function(req, res, next){
 				userId: currentUser.id
 			}
 		}).then(function(preferences){
-			console.log("aici?");
+		
 			if(preferences == null)
 			{
 				preferences={
@@ -35,7 +35,16 @@ router.get('/', function(req, res, next){
 				};
 			}
 			var recommend = knn(preferences, books, options);
-			console.log("luck"+JSON.stringify(preferences, null, 4));
+			
+			recommend.sort(function(a,b){
+				if (a.rating>b.rating)
+					return -1;
+				else if (a.rating < b.rating)
+					return 1;
+				else 
+					return 0;
+			});
+
 			res.send(recommend);
 		}).catch(function(err){
 			res.send(err.Message);

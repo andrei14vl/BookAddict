@@ -43,7 +43,7 @@
 	    <li ng-repeat="review in reviews">
    		 	<p>{{review.text}}</p>
 
-	      	<div>{{review.rating}}</div>
+	      	<div class="inline-stars" star-rating ng-model="review.rating" readonly="true" max="5" ></div> <br>
 	    </li>
 	 </ul>
 
