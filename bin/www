@@ -75,7 +75,7 @@ var users = models.User.bulkCreate([{
     email: "jcunningham9@gizmodo.com",
     password: "user5"
   }
-], { validate: true }).catch(function(errors) { });
+], { validate: true });
 
 var genres = models.Genre.bulkCreate([
   {id: 0,  name: "Action"}, 
