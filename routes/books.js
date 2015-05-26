@@ -13,6 +13,8 @@ router.get('/', function(req, res, next){
 });
 
 
+
+
 router.get("/book/:id", function(req, res, next){
 
 	var book = models.Book.find({
@@ -61,7 +63,13 @@ router.get("/book/:id", function(req, res, next){
 					else
 						copyBook.isInWishlist=false;
 					
-					res.send(copyBook);
+					book.getShopLinks().then(function(links){
+						copyBook["shopLinks"]=links;
+						res.send(copyBook);
+					}).catch(function(err){
+						res.send(err.message);
+					});
+					
 				}).catch(function(err){
 					res.send(err.Message);
 				})
@@ -77,5 +85,9 @@ router.get("/book/:id", function(req, res, next){
 		res.send("Book not found");
 	});
 });
+
+
+
+
 
 module.exports = router;
