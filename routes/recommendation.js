@@ -54,7 +54,7 @@ router.get('/', function(req, res, next){
 					console.log("\nStage two\n");
 					var recommend = knn(preferences, books, options);
 					
-					recommend.sort(function(a,b){
+					books.sort(function(a,b){
 						var firstCoeff = (a.misteryAndSuspicion * preferences.misteryAndSuspicion
 							         + a.beautifulLanguage * preferences.beautifulLanguage
 							         + a.complexRelationships * preferences.complexRelationships
@@ -74,7 +74,7 @@ router.get('/', function(req, res, next){
 
 					});
 					/*console.log(books);*/
-					res.send(recommend);
+					res.send(books.slice(0,20));
 				}).catch(function(err){
 					res.send(err.Message);
 				});
