@@ -14,6 +14,23 @@ router.get('/', function(req, res, next){
 		})
 });
 
+/*The books in a genre*/
+router.get('/books/:id',function(req, res, next){
+	models.Genre.find({
+		where:{
+			id: req.params.id
+		}
+	}).then(function(genre){
+		genre.getBooks().then(function(books){
+			res.send(books);
+		}).catch(function(err){
+			res.send(err.Message);
+		});
+	}).catch(function(err){
+		res.send(err.Message);
+	})
+});
+
 
 /* Genres liked by an user */
 router.get('/user', function(req, res, next){

@@ -3,7 +3,6 @@ var router = express.Router();
 var models  = require('../models');
 var knn = require('alike');
 
-
 router.get('/', function(req, res, next){
 	var currentUser = req.user;
 	var options = {
@@ -16,14 +15,79 @@ router.get('/', function(req, res, next){
 			immersiveStorylines: 0.2	
 		}
 	};
-	models.Book.findAll().then(function(books){
+/*
+	models.Genre.findAll({
+		attributes: ['id']
+	}).then(function(allGenres){
+		currentUser.getGenres({
+			attributes: ['id']
+		}).then(function(userGenres){
+			var genres=null;
+			if(userGenres===null)
+				genres=allGenres;
+			else
+				genres=userGenres;
+
+			models.Book.findAll({
+				where:{
+					genreId:{
+						$in: genres
+					}
+				}
+			}).then(function(books){
+				
+				models.Preference.find({
+					where:{
+						userId: currentUser.id
+					}
+				}).then(function(preferences){
+				
+					if(preferences == null)
+					{
+						preferences={
+							misteryAndSuspicion: 5,
+							beautifulLanguage: 5,
+							complexRelationships: 5,
+							intriguingCharacters: 5,
+							immersiveStorylines: 5
+						};
+					}
+					var recommend = knn(preferences, books, options);
+					
+					recommend.sort(function(a,b){
+						if (a.rating>b.rating)
+							return -1;
+						else if (a.rating < b.rating)
+							return 1;
+						else 
+							return 0;
+					});
+
+					res.send(recommend);
+				}).catch(function(err){
+					res.send(err.Message);
+				});
+			}).catch(function(err){
+				res.send(err.Message);
+			});
+
+		}).catch(function(err){
+			res.send(err.Message);
+		});		
+	}).catch(function(err){
+		res.send(err.Message);
+	})
+
+*/
+
+models.Book.findAll().then(function(books){
 
 		models.Preference.find({
 			where:{
 				userId: currentUser.id
 			}
 		}).then(function(preferences){
-			console.log("aici?");
+		
 			if(preferences == null)
 			{
 				preferences={
@@ -35,7 +99,16 @@ router.get('/', function(req, res, next){
 				};
 			}
 			var recommend = knn(preferences, books, options);
-			console.log("luck"+JSON.stringify(preferences, null, 4));
+			
+			recommend.sort(function(a,b){
+				if (a.rating>b.rating)
+					return -1;
+				else if (a.rating < b.rating)
+					return 1;
+				else 
+					return 0;
+			});
+
 			res.send(recommend);
 		}).catch(function(err){
 			res.send(err.Message);
@@ -43,12 +116,8 @@ router.get('/', function(req, res, next){
 	}).catch(function(err){
 		res.send(err.Message);
 	});
-	// models.Book.findAll()
-	// 	.then(function(books){
-	// 		res.send(books);
-	// }).catch(function(err){
-	// 	res.send(404);
-	// });
+
+
 });
 
 

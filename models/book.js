@@ -27,6 +27,10 @@ module.exports = function(sequelize, DataTypes) {
       immersiveStorylines: {
         type: DataTypes.INTEGER,
         defaultValue: 5
+      },
+      rating: {
+        type: DataTypes.INTEGER,
+        defaultValue: 1
       }
     }, 
     {
