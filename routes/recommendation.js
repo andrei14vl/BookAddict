@@ -6,16 +6,17 @@ var knn = require('alike');
 router.get('/', function(req, res, next){
 	var currentUser = req.user;
 	var options = {
-		k: 5,
+		k: 20,
 		weights:{
 			misteryAndSuspicion: 0.2,
 			beautifulLanguage: 0.2,
 			complexRelationships: 0.2,
 			intriguingCharacters: 0.2,
 			immersiveStorylines: 0.2	
-		}
+		},
+		debug: 1
 	};
-/*
+
 	models.Genre.findAll({
 		attributes: ['id']
 	}).then(function(allGenres){
@@ -28,20 +29,18 @@ router.get('/', function(req, res, next){
 			else
 				genres=userGenres;
 
+			console.log("\nAm intrat\n");
 			models.Book.findAll({
-				where:{
-					genreId:{
-						$in: genres
-					}
-				}
-			}).then(function(books){
 				
+			}).then(function(books){
 				models.Preference.find({
 					where:{
 						userId: currentUser.id
 					}
 				}).then(function(preferences){
-				
+
+				    console.log("cautam preferinte");
+				    console.log(preferences);
 					if(preferences == null)
 					{
 						preferences={
@@ -52,17 +51,29 @@ router.get('/', function(req, res, next){
 							immersiveStorylines: 5
 						};
 					}
+					console.log("\nStage two\n");
 					var recommend = knn(preferences, books, options);
 					
 					recommend.sort(function(a,b){
-						if (a.rating>b.rating)
+						var firstCoeff = (a.misteryAndSuspicion * preferences.misteryAndSuspicion
+							         + a.beautifulLanguage * preferences.beautifulLanguage
+							         + a.complexRelationships * preferences.complexRelationships
+							         + a.intriguingCharacters * preferences.intriguingCharacters
+							         + a.immersiveStorylines * preferences.immersiveStorylines);
+						var secondCoeff = (b.misteryAndSuspicion * preferences.misteryAndSuspicion
+							         + b.beautifulLanguage * preferences.beautifulLanguage
+							         + b.complexRelationships * preferences.complexRelationships
+							         + b.intriguingCharacters * preferences.intriguingCharacters
+							         + b.immersiveStorylines * preferences.immersiveStorylines);
+						if (firstCoeff > secondCoeff)
 							return -1;
-						else if (a.rating < b.rating)
+						else if (firstCoeff < secondCoeff)
 							return 1;
 						else 
 							return 0;
-					});
 
+					});
+					/*console.log(books);*/
 					res.send(recommend);
 				}).catch(function(err){
 					res.send(err.Message);
@@ -76,12 +87,12 @@ router.get('/', function(req, res, next){
 		});		
 	}).catch(function(err){
 		res.send(err.Message);
-	})
+	});
 
-*/
-
+});
+/*
 models.Book.findAll().then(function(books){
-
+		console.log("\nCe caut pe aici\n");
 		models.Preference.find({
 			where:{
 				userId: currentUser.id
@@ -100,16 +111,21 @@ models.Book.findAll().then(function(books){
 			}
 			var recommend = knn(preferences, books, options);
 			
-			recommend.sort(function(a,b){
-				if (a.rating>b.rating)
-					return -1;
-				else if (a.rating < b.rating)
-					return 1;
-				else 
-					return 0;
+			books.sort(function(a,b){
+						return ((a.misteryAndSuspicion * preferences.misteryAndSuspicion
+							         + a.beautifulLanguage * preferences.beautifulLanguage
+							         + a.complexRelationships * preferences.complexRelationships
+							         + a.intriguingCharacters * preferences.intriguingCharacters
+							         + a.immersiveStorylines * preferences.immersiveStorylines)
+								> (b.misteryAndSuspicion * preferences.misteryAndSuspicion
+							         + b.beautifulLanguage * preferences.beautifulLanguage
+							         + b.complexRelationships * preferences.complexRelationships
+							         + b.intriguingCharacters * preferences.intriguingCharacters
+							         + b.immersiveStorylines * preferences.immersiveStorylines));
+
 			});
 
-			res.send(recommend);
+			res.send(books);
 		}).catch(function(err){
 			res.send(err.Message);
 		});
@@ -119,7 +135,7 @@ models.Book.findAll().then(function(books){
 
 
 });
-
+*/
 
 
 
