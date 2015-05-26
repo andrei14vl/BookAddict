@@ -65,12 +65,20 @@ router.get('/', function(req, res, next){
 							         + b.complexRelationships * preferences.complexRelationships
 							         + b.intriguingCharacters * preferences.intriguingCharacters
 							         + b.immersiveStorylines * preferences.immersiveStorylines);
+						var ratingCoeff;
+						if (a.rating>b.rating)
+							ratingCoeff = -1;
+						else if (a.rating < b.rating)
+							ratingCoeff = 1;
+						else 
+							ratingCoeff = 0;
+
 						if (firstCoeff > secondCoeff)
 							return -1;
 						else if (firstCoeff < secondCoeff)
 							return 1;
 						else 
-							return 0;
+							return ratingCoeff;
 
 					});
 					/*console.log(books);*/
