@@ -99,8 +99,6 @@ models.Book.findAll().then(function(books){
 				};
 			}
 			var recommend = knn(preferences, books, options);
-
-			recommendationAlgorithm(preferences, books);
 			
 			recommend.sort(function(a,b){
 				if (a.rating>b.rating)
@@ -121,14 +119,6 @@ models.Book.findAll().then(function(books){
 
 
 });
-
-
-function recommendationAlgorithm(var profile, var objects){
-	console.log(profile);
-	console.log("aaaaaaaa");
-	console,log(objects);
-
-}
 
 
 
