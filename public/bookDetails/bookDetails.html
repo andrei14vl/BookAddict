@@ -21,9 +21,8 @@
 
 	
 	<hr>
-	 	
+	 <div ng-hide="book.isReviewed"> 	 	
 	 <h4>Write a review: </h4>
-	 <div ng-hide="book.isReviewed"> 
 		<br>
 	Rating: <div class="inline-stars" star-rating ng-model="rating" max="5" ></div> <br>
 	Mystery and Suspicion: <div class="inline-stars" star-rating ng-model="misteryAndSuspicion" max="10" ></div> <br>
@@ -37,12 +36,10 @@
 	</div>
 	<hr>
 
-	<p ng-show="reviews.length > 0">Reviews:</p>
+	<h4 ng-show="reviews.length > 0">Reviews:</h4>
 	 <ul>
 	    <li ng-repeat="review in reviews">
-   		 	<p>{{review.text}}</p>
-
-	      	<div>{{review.rating}}</div>
+   		 	<h5>{{review.text}}</h5>
 	    </li>
 	 </ul>
 
