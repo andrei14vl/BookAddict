@@ -65,7 +65,12 @@ router.get("/book/:id", function(req, res, next){
 					
 					book.getShopLinks().then(function(links){
 						copyBook["shopLinks"]=links;
-						res.send(copyBook);
+						book.getGenres().then(function(genres){
+							copyBook["genres"]=genres;
+							res.send(copyBook);	
+						}).catch(function(err){
+							res.send(err.message);
+						})
 					}).catch(function(err){
 						res.send(err.message);
 					});
